@@ -4,7 +4,7 @@
 This project is similar to URBANCLAP for searching job and services online
 
 ### SCRIPT 
- http://urbanclap.algobasket.com
+ -[http://urbanclap.algobasket.com]
 
 ### DEMO   
  http://urbanclap.algobasket.com
@@ -14,7 +14,7 @@ This project is similar to URBANCLAP for searching job and services online
 
 ### CREDENTIALS : 
 
- user/12345  (User)
+ -user/12345  (User)
  admin/12345 (Administrator)
  
  > ## Developed By AlgoBasket

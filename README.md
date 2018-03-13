@@ -8,6 +8,9 @@ This project is similar to URBANCLAP for searching job and services online
 
 ### DEMO   
  http://urbanclap.algobasket.com
+ 
+### BUY    
+ http://urbanclap.algobasket.com/buy 
 
 ### CREDENTIALS : 
 

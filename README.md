@@ -19,9 +19,9 @@ This project is similar to URBANCLAP for searching job and services online
  
  admin/12345
  
- ## Developed BY AlgoBasket
+ > ## Developed BY AlgoBasket
  
- ## Contact us at : algobasket@gmail.com
+> ## Contact us at : algobasket@gmail.com
  
- ## Website : www.algobasket.com
+> ## Website : www.algobasket.com
  

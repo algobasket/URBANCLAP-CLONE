@@ -4,13 +4,13 @@
 This project is similar to URBANCLAP for searching job and services online
 
 ### SCRIPT 
- -[http://urbanclap.algobasket.com]
+- [SCRIPT](http://urbanclap.algobasket.com) - http://urbanclap.algobasket.com
 
 ### DEMO   
- http://urbanclap.algobasket.com
+- [DEMO](http://urbanclap.algobasket.com) - http://urbanclap.algobasket.com
  
 ### BUY    
- http://urbanclap.algobasket.com/buy 
+- [BUY](http://urbanclap.algobasket.com/buy) - http://urbanclap.algobasket.com/buy
 
 ### CREDENTIALS : 
 

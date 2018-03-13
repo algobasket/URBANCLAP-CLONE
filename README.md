@@ -3,23 +3,25 @@
 
 This project is similar to URBANCLAP for searching job and services online
 
-##SCRIPT http://urbanclap.algobasket.com
+## SCRIPT 
+http://urbanclap.algobasket.com
 
-##DEMO   http://urbanclap.algobasket.com
+## DEMO   
+http://urbanclap.algobasket.com
 
-##CREDENTIALS : 
+## CREDENTIALS : 
 
- ###USER LOGIN
+ ### USER LOGIN
  
  algobasket/12345
  
- ###ADMIN LOGIN
+ ### ADMIN LOGIN
  
  algobasket@gmail.com/12345
  
- ##DEVELOPED BY ALGOBASKET
+ ## DEVELOPED BY ALGOBASKET
  
- ##CONTACT US AT : algobasket@gmail.com
+ ## CONTACT US AT : algobasket@gmail.com
  
- ##WEBSITE : WWW.ALGOBASKET.COM
+ ## WEBSITE : WWW.algobasket.com
  

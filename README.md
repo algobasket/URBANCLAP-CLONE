@@ -29,8 +29,8 @@ This project is similar to URBANCLAP for searching job and services online
 > ### Social Media 
 [![AlgoBasket](http://icons.iconarchive.com/icons/designbolts/hand-stitched/48/Twitter-icon.png)](http://twitter.com/algobasket)
 [![AlgoBasket](http://icons.iconarchive.com/icons/designbolts/hand-stitched/48/Facebook-icon.png)](http://facebook.com/algobasket)
-[![AlgoBasket](http://icons.iconarchive.com/icons/designbolts/hand-stitched/48/Google-Plus-icon.png)](http://googleplus.com/algobasket)
-[![AlgoBasket](http://icons.iconarchive.com/icons/designbolts/hand-stitched/48/YouTube-icon.png)](https://www.youtube.com/channel/UCGn4nfAMmOrVNeM5amDS-4Q)
+[![AlgoBasket](http://icons.iconarchive.com/icons/designbolts/hand-stitched/48/Google-Plus-icon.png)](https://plus.google.com/+AlgoBasket)
+[![AlgoBasket](http://icons.iconarchive.com/icons/designbolts/hand-stitched/48/YouTube-icon.png)](http://youtube.com/c/AlgoBasket)
 [![AlgoBasket](http://icons.iconarchive.com/icons/limav/flat-gradient-social/48/Skype-icon.png)](https://web.skype.com)
 - Twitter    : @algobasket 
 - Facebook   : algobasket

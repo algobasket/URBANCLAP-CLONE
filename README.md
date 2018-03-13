@@ -19,11 +19,11 @@ This project is similar to URBANCLAP for searching job and services online
  - user/12345  (User)
  - admin/12345 (Administrator)
  
- > ## Developed By AlgoBasket
+ > ### Developed By AlgoBasket
  
-> ## Contact us at : algobasket@gmail.com
+> ### Contact us at : algobasket@gmail.com
  
-> ## Website : www.algobasket.com
+> ### Website : www.algobasket.com
 
 ### Contribute
 

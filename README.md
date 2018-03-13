@@ -1,4 +1,4 @@
-# UrbanClap Clone - README [![AlgoBasket](https://image.ibb.co/gFtbXx/buynow_green.png)](https://github.com/sindresorhus/awesome)
+# UrbanClap Clone - README [![AlgoBasket](https://image.ibb.co/gFtbXx/buynow_green.png)](http://urbanclap.algobasket.com/buy)
 
 > APPLICATION FOR JOB & SERVICES
 

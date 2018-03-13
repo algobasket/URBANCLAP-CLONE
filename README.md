@@ -4,24 +4,24 @@
 This project is similar to URBANCLAP for searching job and services online
 
 ## SCRIPT 
-http://urbanclap.algobasket.com
+ http://urbanclap.algobasket.com
 
 ## DEMO   
-http://urbanclap.algobasket.com
+ http://urbanclap.algobasket.com
 
 ## CREDENTIALS : 
 
  ### USER LOGIN
  
- algobasket/12345
+ user/12345
  
  ### ADMIN LOGIN
  
- algobasket@gmail.com/12345
+ admin/12345
  
- ## DEVELOPED BY ALGOBASKET
+ ## Developed BY AlgoBasket
  
- ## CONTACT US AT : algobasket@gmail.com
+ ## Contact us at : algobasket@gmail.com
  
- ## WEBSITE : WWW.algobasket.com
+ ## Website : www.algobasket.com
  

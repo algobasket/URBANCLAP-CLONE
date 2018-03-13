@@ -1,4 +1,4 @@
-# URBANCLAP-Job-Seeker-Job-Provider-
+# URBANCLAP CLONE APPLICATION FOR JOB & SERVICES
 This project is similar to URBANCLAP for searching job and services online
 SCRIPT http://urbanclap.algobasket.com
 DEMO   http://urbanclap.algobasket.com

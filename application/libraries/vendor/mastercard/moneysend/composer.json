@@ -1,0 +1,26 @@
+{
+    "name": "mastercard/moneysend",
+    "description": "This is the api for moneysend",
+    "version": "1.0.2",
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "MasterCard Worldwide",
+            "email": "ApiSupport@mastercard.com"
+        }
+    ],
+    "require": {
+        "mastercard/mastercard-api-core": ">=1.4.0 <1.5.0"
+    },
+    "require-dev": {
+	    "phpunit/phpunit": "^5.5"
+	},
+    "autoload": {
+        "psr-0": {
+            "MasterCard": ""
+        }
+    },
+    "archive": {
+        "exclude": ["/result", "/*.p12", ".gitignore", "allfiles.tar"]
+    }
+}

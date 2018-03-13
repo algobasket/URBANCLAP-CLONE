@@ -1,0 +1,5 @@
+{
+    "require": {
+        "mastercard/moneysend": "^1.0"
+    }
+}

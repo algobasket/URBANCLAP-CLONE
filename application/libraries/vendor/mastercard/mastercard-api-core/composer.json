@@ -1,0 +1,29 @@
+{
+    "name": "mastercard/mastercard-api-core",
+    "description": "This is the core or base package of the MasterCard Api, all different flavours of Api provided by MasterCard will reuse this package",
+    "version": "1.4.7",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "MasterCard Worldwide",
+            "email": "APISupport@mastercard.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.1",
+        "monolog/monolog": "^1.19"
+    },
+    "require-dev": {
+	"phpunit/phpunit": "^5.7"
+    },
+    "autoload": {
+        "psr-0": {
+            "MasterCard": ""
+        }
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "MasterCard": ["MasterCard/", "Test/"]
+        }
+    }
+}

@@ -1,0 +1,10 @@
+bin/
+composer.lock
+composer
+run-test
+vendor
+Test/
+*.p12
+*.crt
+*.key
+*.pem

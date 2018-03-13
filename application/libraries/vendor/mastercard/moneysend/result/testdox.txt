@@ -1,0 +1,22 @@
+MasterCard\Api\Moneysend\All
+ [x] 101 CreateCardMapping Sending
+ [x] 102 ReadCardMapping SingleAccount
+ [x] 103 UpdateCardMapping
+ [x] 106 CreateCardMapping Sending Receiving
+ [x] 107 ReadCardMapping MultipleAccount
+ [x] 109 PaymentSpecifiedAccountNumber
+ [x] 110 PaymentSpecifiedMappedAccount
+ [x] 111 FundingSpecifiedAccountNumber
+ [x] 112 FundingMappedAccount
+ [x] 114 TransferReversal Payment
+ [x] 115 TransferReversal Funding
+ [x] 116 CardEligibility MoneySendSending
+ [x] 117 CardEligibility MoneySendRecieving
+ [x] 118 CardEligibility MoneySendSendingRecieving
+ [x] 119 CardEligibility MoneySendMappingSending
+ [x] 120 CardEligibility MoneySendMappingRecieving
+ [x] 121 CardEligibility MoneySendMappingsendingRecieving
+ [x] 122 SanctionScreening
+ [x] 198 DeleteCardMapping
+ [x] 199 DeleteSubscriberID Sending Receiving
+

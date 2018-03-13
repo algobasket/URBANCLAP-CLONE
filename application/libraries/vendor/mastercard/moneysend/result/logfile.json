@@ -1,0 +1,269 @@
+{
+    "event": "suiteStart",
+    "suite": "Application Test Suite",
+    "tests": 20
+}{
+    "event": "suiteStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "tests": 20
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_101_CreateCardMapping_Sending"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_101_CreateCardMapping_Sending",
+    "status": "pass",
+    "time": 0.86707711219788,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_102_ReadCardMapping_SingleAccount"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_102_ReadCardMapping_SingleAccount",
+    "status": "pass",
+    "time": 0.52254796028137,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_103_UpdateCardMapping"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_103_UpdateCardMapping",
+    "status": "pass",
+    "time": 0.71715092658997,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_106_CreateCardMapping_Sending_Receiving"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_106_CreateCardMapping_Sending_Receiving",
+    "status": "pass",
+    "time": 0.90472197532654,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_107_ReadCardMapping_MultipleAccount"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_107_ReadCardMapping_MultipleAccount",
+    "status": "pass",
+    "time": 0.56500601768494,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_109_PaymentSpecifiedAccountNumber"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_109_PaymentSpecifiedAccountNumber",
+    "status": "pass",
+    "time": 0.83305907249451,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_110_PaymentSpecifiedMappedAccount"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_110_PaymentSpecifiedMappedAccount",
+    "status": "pass",
+    "time": 0.9482090473175,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_111_FundingSpecifiedAccountNumber"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_111_FundingSpecifiedAccountNumber",
+    "status": "pass",
+    "time": 0.97019910812378,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_112_FundingMappedAccount"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_112_FundingMappedAccount",
+    "status": "pass",
+    "time": 0.82879519462585,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_114_TransferReversal_Payment"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_114_TransferReversal_Payment",
+    "status": "pass",
+    "time": 0.60422587394714,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_115_TransferReversal_Funding"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_115_TransferReversal_Funding",
+    "status": "pass",
+    "time": 0.62488698959351,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_116_CardEligibility_MoneySendSending"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_116_CardEligibility_MoneySendSending",
+    "status": "pass",
+    "time": 0.40312695503235,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_117_CardEligibility_MoneySendRecieving"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_117_CardEligibility_MoneySendRecieving",
+    "status": "pass",
+    "time": 0.37211394309998,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_118_CardEligibility_MoneySendSendingRecieving"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_118_CardEligibility_MoneySendSendingRecieving",
+    "status": "pass",
+    "time": 0.35747981071472,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_119_CardEligibility_MoneySendMappingSending"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_119_CardEligibility_MoneySendMappingSending",
+    "status": "pass",
+    "time": 0.55520510673523,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_120_CardEligibility_MoneySendMappingRecieving"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_120_CardEligibility_MoneySendMappingRecieving",
+    "status": "pass",
+    "time": 0.52555990219116,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_121_CardEligibility_MoneySendMappingsendingRecieving"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_121_CardEligibility_MoneySendMappingsendingRecieving",
+    "status": "pass",
+    "time": 0.55502605438232,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_122_SanctionScreening"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_122_SanctionScreening",
+    "status": "pass",
+    "time": 0.40560483932495,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_198_DeleteCardMapping"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_198_DeleteCardMapping",
+    "status": "pass",
+    "time": 0.6778929233551,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_199_DeleteSubscriberID_Sending_Receiving"
+}{
+    "event": "test",
+    "suite": "MasterCard\\Api\\Moneysend\\AllTest",
+    "test": "MasterCard\\Api\\Moneysend\\AllTest::test_199_DeleteSubscriberID_Sending_Receiving",
+    "status": "pass",
+    "time": 0.61571502685547,
+    "trace": [],
+    "message": "",
+    "output": ""
+}

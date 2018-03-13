@@ -1,0 +1,22 @@
+TAP version 13
+ok 1 - MasterCard\Api\Moneysend\AllTest::test_101_CreateCardMapping_Sending
+ok 2 - MasterCard\Api\Moneysend\AllTest::test_102_ReadCardMapping_SingleAccount
+ok 3 - MasterCard\Api\Moneysend\AllTest::test_103_UpdateCardMapping
+ok 4 - MasterCard\Api\Moneysend\AllTest::test_106_CreateCardMapping_Sending_Receiving
+ok 5 - MasterCard\Api\Moneysend\AllTest::test_107_ReadCardMapping_MultipleAccount
+ok 6 - MasterCard\Api\Moneysend\AllTest::test_109_PaymentSpecifiedAccountNumber
+ok 7 - MasterCard\Api\Moneysend\AllTest::test_110_PaymentSpecifiedMappedAccount
+ok 8 - MasterCard\Api\Moneysend\AllTest::test_111_FundingSpecifiedAccountNumber
+ok 9 - MasterCard\Api\Moneysend\AllTest::test_112_FundingMappedAccount
+ok 10 - MasterCard\Api\Moneysend\AllTest::test_114_TransferReversal_Payment
+ok 11 - MasterCard\Api\Moneysend\AllTest::test_115_TransferReversal_Funding
+ok 12 - MasterCard\Api\Moneysend\AllTest::test_116_CardEligibility_MoneySendSending
+ok 13 - MasterCard\Api\Moneysend\AllTest::test_117_CardEligibility_MoneySendRecieving
+ok 14 - MasterCard\Api\Moneysend\AllTest::test_118_CardEligibility_MoneySendSendingRecieving
+ok 15 - MasterCard\Api\Moneysend\AllTest::test_119_CardEligibility_MoneySendMappingSending
+ok 16 - MasterCard\Api\Moneysend\AllTest::test_120_CardEligibility_MoneySendMappingRecieving
+ok 17 - MasterCard\Api\Moneysend\AllTest::test_121_CardEligibility_MoneySendMappingsendingRecieving
+ok 18 - MasterCard\Api\Moneysend\AllTest::test_122_SanctionScreening
+ok 19 - MasterCard\Api\Moneysend\AllTest::test_198_DeleteCardMapping
+ok 20 - MasterCard\Api\Moneysend\AllTest::test_199_DeleteSubscriberID_Sending_Receiving
+1..20

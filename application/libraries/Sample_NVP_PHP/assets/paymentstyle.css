@@ -1,0 +1,24 @@
+h1       { font-family:Arial,sans-serif; font-size:20pt; font-weight:600; margin-bottom:0.1em; color:#000000; text-align:center;}
+h2       { font-family:Arial,sans-serif; font-size:14pt; font-weight:100; margin-top:0.1em; color:#000000;}
+h2.co    { font-family:Arial,sans-serif; font-size:24pt; font-weight:100; margin-top:0.1em; margin-bottom:0.1em; color:#000000}
+h3       { font-family:Arial,sans-serif; font-size:16pt; font-weight:100; margin-top:0.1em; margin-bottom:0.1em; color:#000000; text-align:center;}
+h3.co    { font-family:Arial,sans-serif; font-size:16pt; font-weight:100; margin-top:0.1em; margin-bottom:0.1em; color:#FFFFFF}
+body     { font-family:Verdana,Arial,sans-serif; font-size:10pt; background-color:#FFFFFF; color:#000000}
+th       { font-family:Verdana,Arial,sans-serif; font-size:8pt; font-weight:bold; background-color:#CED7EF; padding-top:0.5em; padding-bottom:0.5em;  color:#000000}
+tr       { height:25px; background-color:#EBEBEB }
+.shade   { height:25px; background-color:#DCDCDC }
+.title   { height:25px; background-color:#AAAAAA }
+td       { font-family:Verdana,Arial,sans-serif; font-size:10pt;  color:#000000 }
+td.red   { font-family:Verdana,Arial,sans-serif; font-size:10pt;  color:#FF0066 }
+td.green { font-family:Verdana,Arial,sans-serif; font-size:10pt;  color:#008800 }
+p        { font-family:Verdana,Arial,sans-serif; font-size:10pt; color:#000000; text-align:center; }
+p.desc	 { font-family:Verdana,Arial,sans-serif; font-size:10pt; color:#000000; text-align:left; }
+p.blue   { font-family:Verdana,Arial,sans-serif; font-size:7pt;  color:#000000 }
+p.red    { font-family:Verdana,Arial,sans-serif; font-size:7pt;  color:#FF0066 }
+p.green  { font-family:Verdana,Arial,sans-serif; font-size:7pt;  color:#008800 }
+div.bl   { font-family:Verdana,Arial,sans-serif; font-size:7pt;  color:#0074C4 }
+div.red  { font-family:Verdana,Arial,sans-serif; font-size:7pt;  color:#FF0066 }
+li       { font-family:Verdana,Arial,sans-serif; font-size:10pt;  color:#000000 }
+input    { font-family:Verdana,Arial,sans-serif; font-size:8pt;  color:#000000; font-weight:bold }
+select   { font-family:Verdana,Arial,sans-serif; font-size:8pt;  color:#000000; font-weight:bold }
+textarea { font-family:Verdana,Arial,sans-serif; font-size:8pt;  color:#000000; font-weight:normal }

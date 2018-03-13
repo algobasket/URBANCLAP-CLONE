@@ -26,6 +26,11 @@ This project is similar to URBANCLAP for searching job and services online
  
 > ### Website : www.algobasket.com
 
+> ### Social Media 
+- Twitter : @algobasket
+- Skype   : algobasket
+- Reddit  : algobasket
+
 ### Contribute
 
 Contributions are always welcome!

@@ -12,6 +12,9 @@ This project is similar to URBANCLAP for searching job and services online
 ### BUY NOW    
 - [BUY](http://urbanclap.algobasket.com/buy) - http://urbanclap.algobasket.com/buy
 
+>> ### FEATURES & FUNCTIONALITIES
+- Based on User Role and Permission
+
 ### CREDENTIALS : 
 
  -user/12345  (User)

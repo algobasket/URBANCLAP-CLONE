@@ -15,10 +15,9 @@ This project is similar to URBANCLAP for searching job and services online
 > ### FEATURES & FUNCTIONALITIES
 - Based on User Role and Permission
 
-### CREDENTIALS : 
-
- -user/12345  (User)
- admin/12345 (Administrator)
+> ### CREDENTIALS 
+ - user/12345  (User)
+ - admin/12345 (Administrator)
  
  > ## Developed By AlgoBasket
  

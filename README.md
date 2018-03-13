@@ -1,4 +1,5 @@
-# URBANCLAP CLONE APPLICATION FOR JOB & SERVICES
+# UrbanClap Clone - README
+> APPLICATION FOR JOB & SERVICES
 
 This project is similar to URBANCLAP for searching job and services online
 

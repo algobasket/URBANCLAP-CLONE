@@ -3,13 +3,13 @@
 
 This project is similar to URBANCLAP for searching job and services online
 
-## SCRIPT 
+### SCRIPT 
  http://urbanclap.algobasket.com
 
-## DEMO   
+### DEMO   
  http://urbanclap.algobasket.com
 
-## CREDENTIALS : 
+### CREDENTIALS : 
 
  user/12345  (User)
  admin/12345 (Administrator)
@@ -20,12 +20,12 @@ This project is similar to URBANCLAP for searching job and services online
  
 > ## Website : www.algobasket.com
 
-## Contribute
+### Contribute
 
 Contributions are always welcome!
 Please read the [contribution guidelines](contributing.md) first.
 
-## License
+### License
 
 [![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/)
 

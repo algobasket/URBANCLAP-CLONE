@@ -25,6 +25,10 @@
   </td>
   </tr>
   <tr>
+  <td>Service Pricing Tag</td>
+  <td><?php echo form_textarea('price_detail',$service['pricing_detail'],'placeholder="Name" class="form-control" required');?></td>
+  </tr>
+  <tr>
   <td></td>
   <td><?php echo form_submit('updateBtn','Update','class="btn btn-primary"');?></td>
   </tr>

@@ -31,14 +31,14 @@
 <body>
 
     <?php // Fixed navbar ?>
-    <nav class="navbar navbar-inverse navbar-static-top">
+    <nav class="navbar navbar-inverse navbar-static-top" style="background-color: #168394 !important">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only"><?php echo lang('core button toggle_nav'); ?></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
                 </button>
                 <a class="navbar-brand" href="/" style="color:#fff;font-size:18px">
 									<!-- <img class="img-responsive" src="<?php //echo base_url();?>themes/default/img/logo-white.png" alt="<?php //echo $this->settings->site_name; ?>">
@@ -49,12 +49,11 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <?php // Nav bar left ?>
                 <ul class="nav navbar-nav">
-                    <li class="<?php echo (uri_string() == '') ? 'active' : ''; ?>"><a href="<?php echo base_url('/'); ?>"><?php echo lang('core button home'); ?></a></li>
-                   <li class="<?php echo (uri_string() == 'features') ? 'active' : ''; ?>"><a href="<?php echo base_url('/features'); ?>"><?php echo lang('core button features'); ?></a></li>
-                    <li class="<?php echo (uri_string() == 'merchant') ? 'active' : ''; ?>"><a href="<?php echo base_url('/merchant'); ?>"><?php echo lang('core button mecrhant'); ?></a></li>
-                   <li class="<?php echo (uri_string() == 'protect') ? 'active' : ''; ?>"><a href="<?php echo base_url('/protect'); ?>"><?php echo lang('core button protect'); ?></a></li>
-                   <li class="<?php echo (uri_string() == 'help') ? 'active' : ''; ?>"><a href="<?php echo base_url('/help'); ?>"><?php echo lang('core button help'); ?></a></li>
-                   <li class="<?php echo (uri_string() == 'contact') ? 'active' : ''; ?>"><a href="<?php echo base_url('/contact'); ?>"><?php echo lang('core button contact'); ?></a></li>
+                   <li class="<?php echo (uri_string() == 'features') ? 'active' : ''; ?>"><a href="<?php echo base_url('/features'); ?>" style="color:#fff !important"  ><?php echo lang('core button features'); ?></a></li>
+                    <li class="<?php echo (uri_string() == 'merchant') ? 'active' : ''; ?>"><a href="<?php echo base_url('/merchant'); ?>" style="color:#fff !important" ><?php echo lang('core button mecrhant'); ?></a></li>
+                   <li class="<?php echo (uri_string() == 'protect') ? 'active' : ''; ?>"><a href="<?php echo base_url('/protect'); ?>" style="color:#fff !important"><?php echo lang('core button protect'); ?></a></li>
+                   <li class="<?php echo (uri_string() == 'help') ? 'active' : ''; ?>"><a href="<?php echo base_url('/help'); ?>" style="color:#fff !important"><?php echo lang('core button help'); ?></a></li>
+                   <li class="<?php echo (uri_string() == 'contact') ? 'active' : ''; ?>"><a href="<?php echo base_url('/contact'); ?>" style="color:#fff !important"><?php echo lang('core button contact'); ?></a></li>
 
                 </ul>
                 <?php // Nav bar right ?>

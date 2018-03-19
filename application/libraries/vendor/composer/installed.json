@@ -449,5 +449,368 @@
             }
         ],
         "description": "This is the api for moneysend"
+    },
+    {
+        "name": "gabrielbull/ups-api",
+        "version": "0.8.0",
+        "version_normalized": "0.8.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/gabrielbull/php-ups-api.git",
+            "reference": "cb633b84d5437683e286c7df34dc8e4ae254a297"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/gabrielbull/php-ups-api/zipball/cb633b84d5437683e286c7df34dc8e4ae254a297",
+            "reference": "cb633b84d5437683e286c7df34dc8e4ae254a297",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "^6.0",
+            "php": "^5.5 || ^7.0",
+            "psr/log": "^1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8 || ^5.0"
+        },
+        "suggest": {
+            "ext-soap": "Required if you need the Tradeability API of UPS"
+        },
+        "time": "2017-11-11 10:51:51",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-develop": "0.5.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Ups\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sebastien Vergnes",
+                "email": "sebastien@vergnes.eu"
+            },
+            {
+                "name": "Michael Williams",
+                "email": "michael.williams@limelyte.com"
+            },
+            {
+                "name": "Gabriel Bull",
+                "email": "me@gabrielbull.com"
+            },
+            {
+                "name": "Stefan Doorn",
+                "email": "stefan@efectos.nl"
+            },
+            {
+                "name": "Eduard Sukharev",
+                "email": "sukharev.eh@gmail.com"
+            }
+        ],
+        "description": "PHP UPS API",
+        "keywords": [
+            "Rate",
+            "Rating",
+            "api",
+            "quantum view",
+            "shipping",
+            "time in transit",
+            "tracking",
+            "tradeability",
+            "ups",
+            "wrapper"
+        ]
+    },
+    {
+        "name": "psr/cache",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/cache.git",
+            "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/cache/zipball/d11b50ad223250cf17b86e38383413f5a6764bf8",
+            "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-08-06 20:24:11",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Cache\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for caching libraries",
+        "keywords": [
+            "cache",
+            "psr",
+            "psr-6"
+        ]
+    },
+    {
+        "name": "firebase/php-jwt",
+        "version": "v5.0.0",
+        "version_normalized": "5.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/firebase/php-jwt.git",
+            "reference": "9984a4d3a32ae7673d6971ea00bae9d0a1abba0e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/firebase/php-jwt/zipball/9984a4d3a32ae7673d6971ea00bae9d0a1abba0e",
+            "reference": "9984a4d3a32ae7673d6971ea00bae9d0a1abba0e",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": " 4.8.35"
+        },
+        "time": "2017-06-27 22:17:23",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Firebase\\JWT\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Neuman Vong",
+                "email": "neuman+pear@twilio.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Anant Narayanan",
+                "email": "anant@php.net",
+                "role": "Developer"
+            }
+        ],
+        "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
+        "homepage": "https://github.com/firebase/php-jwt"
+    },
+    {
+        "name": "google/auth",
+        "version": "v1.2.1",
+        "version_normalized": "1.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/google/google-auth-library-php.git",
+            "reference": "da0062d279c9459350808a4fb63dbc08b90d6b90"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/da0062d279c9459350808a4fb63dbc08b90d6b90",
+            "reference": "da0062d279c9459350808a4fb63dbc08b90d6b90",
+            "shasum": ""
+        },
+        "require": {
+            "firebase/php-jwt": "~2.0|~3.0|~4.0|~5.0",
+            "guzzlehttp/guzzle": "~5.3.1|~6.0",
+            "guzzlehttp/psr7": "~1.2",
+            "php": ">=5.4",
+            "psr/cache": "^1.0",
+            "psr/http-message": "^1.0"
+        },
+        "require-dev": {
+            "friendsofphp/php-cs-fixer": "^1.11",
+            "guzzlehttp/promises": "0.1.1|^1.3",
+            "phpunit/phpunit": "^4.8.36|^5.7",
+            "sebastian/comparator": ">=1.2.3"
+        },
+        "time": "2018-01-24 18:28:42",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Google\\Auth\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "Google Auth Library for PHP",
+        "homepage": "http://github.com/google/google-auth-library-php",
+        "keywords": [
+            "Authentication",
+            "google",
+            "oauth2"
+        ]
+    },
+    {
+        "name": "rize/uri-template",
+        "version": "0.3.2",
+        "version_normalized": "0.3.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/rize/UriTemplate.git",
+            "reference": "9e5fdd5c47147aa5adf7f760002ee591ed37b9ca"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/rize/UriTemplate/zipball/9e5fdd5c47147aa5adf7f760002ee591ed37b9ca",
+            "reference": "9e5fdd5c47147aa5adf7f760002ee591ed37b9ca",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0.0"
+        },
+        "time": "2017-06-14 03:57:53",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Rize\\UriTemplate": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Marut K",
+                "homepage": "http://twitter.com/rezigned"
+            }
+        ],
+        "description": "PHP URI Template (RFC 6570) supports both expansion & extraction",
+        "keywords": [
+            "RFC 6570",
+            "template",
+            "uri"
+        ]
+    },
+    {
+        "name": "google/cloud-core",
+        "version": "v1.18.0",
+        "version_normalized": "1.18.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/GoogleCloudPlatform/google-cloud-php-core.git",
+            "reference": "9f905c2d7c58db82e311eeff3843cc490ac68f09"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/GoogleCloudPlatform/google-cloud-php-core/zipball/9f905c2d7c58db82e311eeff3843cc490ac68f09",
+            "reference": "9f905c2d7c58db82e311eeff3843cc490ac68f09",
+            "shasum": ""
+        },
+        "require": {
+            "google/auth": "^1.2",
+            "guzzlehttp/guzzle": "^5.3|^6.0",
+            "guzzlehttp/psr7": "^1.2",
+            "monolog/monolog": "~1",
+            "php": ">=5.5",
+            "psr/http-message": "1.0.*",
+            "rize/uri-template": "~0.3"
+        },
+        "suggest": {
+            "opis/closure": "May be used to serialize closures to process jobs in the batch daemon. Please require version ^3.",
+            "symfony/lock": "Required for the Spanner cached based session pool. Please require the following commit: 3.3.x-dev#1ba6ac9"
+        },
+        "time": "2018-03-16 18:56:38",
+        "bin": [
+            "bin/google-cloud-batch"
+        ],
+        "type": "library",
+        "extra": {
+            "component": {
+                "id": "cloud-core",
+                "target": "GoogleCloudPlatform/google-cloud-php-core.git",
+                "path": "src/Core",
+                "entry": "ServiceBuilder.php"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Google\\Cloud\\Core\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "Google Cloud PHP shared dependency, providing functionality useful to all components."
+    },
+    {
+        "name": "google/cloud-translate",
+        "version": "v1.1.2",
+        "version_normalized": "1.1.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/GoogleCloudPlatform/google-cloud-php-translate.git",
+            "reference": "786c3a34f0db6c494e220bea1882b60df6c674b7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/GoogleCloudPlatform/google-cloud-php-translate/zipball/786c3a34f0db6c494e220bea1882b60df6c674b7",
+            "reference": "786c3a34f0db6c494e220bea1882b60df6c674b7",
+            "shasum": ""
+        },
+        "require": {
+            "google/cloud-core": "^1.14"
+        },
+        "time": "2018-02-01 16:15:59",
+        "type": "library",
+        "extra": {
+            "component": {
+                "id": "cloud-translate",
+                "target": "GoogleCloudPlatform/google-cloud-php-translate.git",
+                "path": "src/Translate",
+                "entry": "TranslateClient.php"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Google\\Cloud\\Translate\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "Cloud Transation Client for PHP"
     }
 ]

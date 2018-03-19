@@ -26,6 +26,10 @@
                     <?php if ($sort == 'id') : ?><span class="glyphicon glyphicon-arrow-<?php echo (($dir == 'asc') ? 'up' : 'down'); ?>"></span><?php endif; ?>
                 </th>
                 <th>
+                    <a href="<?php echo current_url(); ?>?sort=accessCode&dir=<?php echo (($dir == 'asc' ) ? 'desc' : 'asc'); ?>&limit=<?php echo $limit; ?>&offset=<?php echo $offset; ?><?php echo $filter; ?>"><?php echo lang('users enter accessCode'); ?></a>
+                    <?php if ($sort == 'id') : ?><span class="glyphicon glyphicon-arrow-<?php echo (($dir == 'asc') ? 'up' : 'down'); ?>"></span><?php endif; ?>
+                </th>
+                <th>
                     <a href="<?php echo current_url(); ?>?sort=username&dir=<?php echo (($dir == 'asc' ) ? 'desc' : 'asc'); ?>&limit=<?php echo $limit; ?>&offset=<?php echo $offset; ?><?php echo $filter; ?>"><?php echo lang('users col username'); ?></a>
                     <?php if ($sort == 'username') : ?><i class="icon-arrow-<?php echo (($dir == 'asc') ? 'up' : 'down'); ?> icons"></i><?php endif; ?>
                 </th>
@@ -56,6 +60,9 @@
                     <tr>
                         <td<?php echo (($sort == 'id') ? ' class="sorted"' : ''); ?>>
                             <?php echo $user['id']; ?>
+                        </td>
+                        <td<?php echo (($sort == 'accessCode') ? ' class="sorted"' : ''); ?>>
+                            <?php echo $user['accessCode']; ?>
                         </td>
                         <td<?php echo (($sort == 'username') ? ' class="sorted"' : ''); ?>>
                             <?php echo $user['username']; ?>

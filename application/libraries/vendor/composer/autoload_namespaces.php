@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Rize\\UriTemplate' => array($vendorDir . '/rize/uri-template/src'),
     'MasterCard' => array($vendorDir . '/mastercard/mastercard-api-core', $vendorDir . '/mastercard/moneysend'),
 );

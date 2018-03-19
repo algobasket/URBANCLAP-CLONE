@@ -1,9 +1,9 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <br><br><br>
-<center><h2>Login | Signin</h2></center>
 
+
+<center><h2>Login</h2></center>
 <div class="container theme-showcase" role="main">
-
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
       <div class="panel panel-default">
@@ -20,10 +20,12 @@
           <?php echo form_submit(array('name'=>'submit', 'class'=>'btn btn-success pull-right'), lang('core button login')); ?>
           <p><br /><a href="<?php echo base_url('user/forgot'); ?>"><?php echo lang('users link forgot_password'); ?></a></p>
           <p><a href="<?php echo base_url('user/register'); ?>"><?php echo lang('users link register_account'); ?></a></p>
+          <p><a href="<?php echo base_url('user/offerPage'); ?>"><?php echo lang('users enter access page'); ?></a></p>
         <?php echo form_close(); ?>
       </div>
     </div>
     </div>
   </div>
-
 </div>
+
+

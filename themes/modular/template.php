@@ -62,7 +62,7 @@
                             <div class="brand">
                                 <div class="logo">
                                   <!-- <img width="180px" src="<?php //echo base_url();?>themes/modular/img/admin-logo.png" alt="<?php echo $this->settings->site_name; ?>"> -->
-                                    Smart-Interim
+                                   <?php echo $this->settings->site_name; ?>
                                 </div>
                         </div>
                         <nav class="menu">
@@ -83,19 +83,19 @@
                                 </li>
 
                                 <li class="<?php echo (uri_string() == 'admin' OR uri_string() == 'admin/categories') ? 'active' : ''; ?>">
-                                  <a href="<?php echo base_url('admin/categories'); ?>"><i class="icon-wallet icons"></i> Categories <i class="fa arrow"></i> </a>
+                                  <a href="<?php echo base_url('admin/categories'); ?>"><i class="icon-wallet icons"></i> <?php echo lang('admin categories');?> <i class="fa arrow"></i> </a>
                                 </li>
 
                                 <li class="<?php echo (uri_string() == 'admin' OR uri_string() == 'admin/categories_questions') ? 'active' : ''; ?>">
-                                  <a href="<?php echo base_url('admin/categories_questions'); ?>"><i class="icon-wallet icons"></i> Categories Questions <i class="fa arrow"></i> </a>
+                                  <a href="<?php echo base_url('admin/categories_questions'); ?>"><i class="icon-wallet icons"></i> <?php echo lang('admin categories questions');?> <i class="fa arrow"></i> </a>
                                 </li>
 
                                 <li class="<?php echo (uri_string() == 'admin' OR uri_string() == 'admin/services') ? 'active' : ''; ?>">
-                                  <a href="<?php echo base_url('admin/services'); ?>"><i class="icon-wallet icons"></i> Services <i class="fa arrow"></i> </a>
+                                  <a href="<?php echo base_url('admin/services'); ?>"><i class="icon-wallet icons"></i> <?php echo lang('admin services');?> <i class="fa arrow"></i> </a>
                                 </li>
 
                                 <li class="<?php echo (uri_string() == 'admin' OR uri_string() == 'admin/projects') ? 'active' : ''; ?>">
-                                  <a href="<?php echo base_url('admin/projects'); ?>"><i class="icon-wallet icons"></i> Projects/Jobs <i class="fa arrow"></i> </a>
+                                  <a href="<?php echo base_url('admin/projects'); ?>"><i class="icon-wallet icons"></i> <?php echo lang('admin projects jobs');?> <i class="fa arrow"></i> </a>
                                 </li>
 
                                 <!-- <li class="<?php //echo (uri_string() == 'admin' OR uri_string() == 'admin/loan') ? 'active' : ''; ?>">
@@ -103,8 +103,8 @@
                                 </li> -->
 
                                 <li class="<?php echo (uri_string() == 'admin' OR uri_string() == 'admin/commission') ? 'active' : ''; ?>">
-                                  <a href="<?php echo base_url('admin/commission'); ?>"><i class="icon-wallet icons"></i> Fees/Commission <i class="fa arrow"></i> </a>
-                                </li>
+                                  <a href="<?php echo base_url('admin/commission'); ?>"><i class="icon-wallet icons"></i> <?php echo lang('admin fees commission');?> <i class="fa arrow"></i> </a>
+                                </li> 
 
 
 
@@ -276,7 +276,7 @@
                 <article class="content responsive-tables-page">
                     <div class="title-block">
                         <h1 class="title">
-                            <?php echo $page_header; ?>
+                            <?php echo $page_header; ?> 
                         </h1>
                     </div>
                     <section class="section">

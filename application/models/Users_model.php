@@ -355,7 +355,21 @@ class Users_model extends CI_Model {
 
         return FALSE;
     }
+    
 
+    function codeActivation($email,$code){
+        $query = $this->db->query("SELECT * FROM users WHERE email = ? AND validation_code = ?",array($email,$code));
+        //echo $this->db->last_query(); 
+        if($query->num_rows() == 1){
+            $data = array(
+                    'validation_code' => null,
+                    'status'=> 1
+                 ); 
+            $this->db->where('email',$email);
+            $this->db->update('users',$data);
+            return true;
+        }
+    } 
 
     /**
      * User creates their own profile
@@ -368,9 +382,20 @@ class Users_model extends CI_Model {
         if ($data)
         {
             // secure password and create validation code
+            if($data['recruit_seeker_both'] == "recruiter"){
+              $code = "R";
+              $role_id = 6;
+            }elseif($data['recruit_seeker_both'] == "seeker"){
+              $code = "S";
+               $role_id = 7;
+            }elseif($data['recruit_seeker_both'] == "recruiter-seeker"){
+              $code = "RS";
+              $role_id = 8;
+            }     
+            $accessCode = $code.strtoupper(uniqid());
             $salt            = hash('sha512', uniqid(mt_rand(1, mt_getrandmax()), TRUE));
             $password        = hash('sha512', $data['password'] . $salt);
-            $validation_code = sha1(microtime(TRUE) . mt_rand(10000, 90000));
+            $validation_code = $code .'-'. sha1(microtime(TRUE) . mt_rand(10000, 90000));
 
             $sql = "
                 INSERT INTO {$this->_db} (
@@ -380,23 +405,29 @@ class Users_model extends CI_Model {
                     first_name,
                     last_name,
                     email,
-										phone,
+					phone,
                     language,
                     is_admin,
                     status,
                     deleted,
                     validation_code,
-                    'age'
+                    age,
                     created,
-                    updated
+                    updated,
+                    experience_detail,
+                    education_detail,
+                    recruit_seeker_both,
+                    accessCode,
+                    role_id,
+                    service_ids
                 ) VALUES (
-                    " . $this->db->escape($data['username']) . ",
+                    " . $this->db->escape($data['email']) . ",
                     " . $this->db->escape($password) . ",
                     " . $this->db->escape($salt) . ",
                     " . $this->db->escape($data['first_name']) . ",
                     " . $this->db->escape($data['last_name']) . ",
                     " . $this->db->escape($data['email']) . ",
-										" . $this->db->escape($data['phone']) . ",
+					" . $this->db->escape($data['phone']) . ",
                     " . $this->db->escape($data['language']) . ",
                     '0',
                     '0',
@@ -404,7 +435,13 @@ class Users_model extends CI_Model {
                     " . $this->db->escape($validation_code) . ",
                     ".$this->db->escape($data['age']).",
                     '" . date('Y-m-d H:i:s') . "',
-                    '" . date('Y-m-d H:i:s') . "'
+                    '" . date('Y-m-d H:i:s') . "', 
+                    " . $this->db->escape($data['experience_detail']) . ", 
+                    ".$this->db->escape($data['education_detail']).", 
+                    ".$this->db->escape($data['recruit_seeker_both']).",
+                    ".$this->db->escape($accessCode).",
+                    ".$this->db->escape($role_id).",
+                    ".$this->db->escape($data['services'])."      
                 )
             ";
 
@@ -923,6 +960,69 @@ class Users_model extends CI_Model {
    function getUserQRCode($uid){
      $query = $this->db->query("SELECT qrcode FROM users WHERE id = ?",array($uid));
      return $query->result_array()[0]['qrcode'];
+   }
+
+
+   // function jobOffers($accessCode){
+   //   $query = $this->db->query("SELECT * FROM users WHERE id = ?",array($accessCode));
+   //   return $query->result_array();
+   // }
+
+   function checkAccessCode($accessCode){
+      $query = $this->db->query("SELECT * FROM users WHERE accessCode = ? AND status = ?",array($accessCode,1));
+     return $query->result_array();
+   }
+
+  
+
+   function getAllCountries(){ 
+      $query = $this->db->query("SELECT * FROM countries");
+     return $query->result_array();
+   }
+
+   function getCountryNameFromId($id){    
+      $query = $this->db->query("SELECT name FROM countries WHERE id = ?",array($id));
+     return $query->result_array()[0]['name'];
+   }   
+
+   function getCountryIdFromName($name){    
+      $query = $this->db->query("SELECT id FROM countries WHERE name like '%$name'");
+      //echo $this->db->last_query();
+     return $query->result_array()[0]['id'];
+   }     
+
+   function getAllStatesFromCountry($countryId){
+      $query = $this->db->query("SELECT * FROM states WHERE country_id = ?",array($countryId));
+     return $query->result_array();
+   } 
+
+   function getAllCitiesFromStates($stateId){
+      $query = $this->db->query("SELECT * FROM cities WHERE state_id = ?",array($stateId));
+     return $query->result_array();
+   }
+
+   function getCityNameFromId($id){
+     $query = $this->db->query("SELECT name FROM cities WHERE id = ?",array($id));
+     return $query->result_array()[0]['name'];
+   } 
+   function getCityIdFromName($name){    
+      $query = $this->db->query("SELECT id FROM cities WHERE name like '%$name'");
+      return $query->result_array()[0]['id'];
+   }  
+
+   function getAllCitiesFromCountryId($countryId){
+      $query = $this->db->select('cities.id,cities.name')
+                        ->from('cities')
+                        ->join('states','states.id=cities.state_id','left')
+                        ->join('countries','countries.id=states.country_id','left')
+                        ->where('countries.id',$countryId)
+                        ->get();               
+       return $query->result_array();                 
+   }
+
+   function getServices($servicename){
+     $query = $this->db->query("SELECT * FROM services WHERE title like '%$servicename%'");
+     return $query->result_array();
    }
 
 }

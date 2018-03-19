@@ -418,6 +418,11 @@ class Fees extends Admin_Controller {
     $this->load->view($this->template, $data);
   }
 
+  function deleteBankList(){   
+  	$this->fees_model->deleteBankList($this->uri->segment(4));
+  	redirect('admin/fees/getBankList'); 
+  }
+
 
 
 

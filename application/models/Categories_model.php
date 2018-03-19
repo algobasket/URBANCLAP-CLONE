@@ -92,6 +92,15 @@ class Categories_model extends CI_Model{
     return $query->result_array();
    }
 
+   function getCategoryQuestionsFromServiceId($serviceId){
+     $query = $this->db->select('*')
+                       ->from('categories_questions')
+                       ->where('FIND_IN_SET('.$serviceId.',service_id) > 0')
+                       ->get();
+    return $query->result_array();
+   }
+
+
    function getServicesFromCategoryName($categoryName){
      $id = $this->getCategoryIdFromCategoryName($categoryName);
      $query = $this->db->select('*')
@@ -100,6 +109,19 @@ class Categories_model extends CI_Model{
                        ->get();
     return $query->result_array();
    }
+
+
+   function getCategoryIdFromServiceId($serviceId){
+      $query = $this->db->select('category_id')
+                       ->from('services')
+                       ->where('id',$serviceId) 
+                       ->get(); 
+      return $query->result_array()[0]['category_id'];
+   }
+
+
+
+
 
    function getAllCategoryAndServices(){
        foreach($this->getAllCategory() as $category){

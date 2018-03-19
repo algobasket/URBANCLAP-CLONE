@@ -15,6 +15,7 @@
      <td>
        Status
      </td>
+     <td></td>
    </tr>
    <?php $i = 1; foreach($getBankList as $list){ ?>
      <tr>
@@ -27,6 +28,7 @@
        <td>
         <?php echo $list['status'];?>
        </td>
+       <td><a href="<?php echo base_url();?>admin/fees/deleteBankList/<?php echo $list['id'];?>">Delete</a></td>
      </tr>
    <?php $i++ ; } ?>
 

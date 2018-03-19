@@ -1,5 +1,7 @@
 {
     "require": {
-        "mastercard/moneysend": "^1.0"
+        "mastercard/moneysend": "^1.0",
+        "gabrielbull/ups-api": "^0.8.0",
+        "google/cloud-translate": "^1.1"
     }
 }

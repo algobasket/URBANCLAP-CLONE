@@ -29,7 +29,7 @@
 
 .header-bg {
   height: 100px;
-  background: #7867a7 url(../img/just3-bg.png);
+  background: ##e27373;
   padding-top: 20px;
   padding-bottom: 40px;
   color: #fff;
@@ -100,11 +100,11 @@
 }
 .footer {
     color: #828282;
-    background-color: #2c2b29;
+    background-color: #168394;
     margin-top: 50px;
 }
 .footer a {
-  color: #828282;
+  color: #000;
 }
 .footer hr {
   border-top: 1px solid #383838;
@@ -114,7 +114,8 @@
     margin-top: 15px;
 }
 .footer .list-group-item {
-    background-color: #2c2b29;
+    background-color: #2c2b2900;
+    color: #000;
     border: none;
 }
 .footer .form-control {

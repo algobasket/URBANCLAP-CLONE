@@ -15,7 +15,7 @@ class Account extends Private_Controller {
         $this->lang->load('users');
 
         // load the users model
-        $this->load->model('users_model');
+            $this->load->model('users_model'); 
     		$this->load->model('transactions_model');
     		$this->load->model('disputes_model');
     		$this->load->model('tickets_model');
@@ -24,7 +24,7 @@ class Account extends Private_Controller {
     		$this->load->model('verification_model');
     		$this->load->model('merchants_model');
     		$this->load->model('vouchers_model');
-        $this->load->model('categories_model');
+            $this->load->model('categories_model'); 
     		$this->lang->load('currency');
     		$this->load->library('commission');
     		$this->load->library('email');

@@ -41,7 +41,7 @@ class User extends Public_Controller {
             }
             else
             {
-                redirect(base_url());
+                redirect(base_url()); 
             }
         }
         // set form validation rules
@@ -83,6 +83,38 @@ class User extends Public_Controller {
         $this->load->view($this->template, $data);
     }
 
+    function codeActivation(){
+        // setup page header data
+        $this->set_title( lang('users title codeactivation') );
+
+        $data = $this->includes;
+
+       
+        if($this->input->post('codeSubmit')){
+            $result = $this->users_model->codeActivation(
+                $this->session->userdata('tempUserEmail'),
+                $this->input->post('code')
+            );
+            if($result == true){
+                $this->session->set_flashdata('alert','<div class="alert alert-success">Your Account Activated</div>');
+              $this->session->unset_userdata('tempUserEmail');
+              $activationStatus = true;    
+            }else{
+                 $this->session->set_flashdata('alert','<div class="alert alert-danger">Incorrect Activation Code</div>');
+                 $activationStatus = false; 
+            }
+       
+        }
+         // set content data
+        $content_data = array(
+            'activationStatus' => $activationStatus,
+            'user' => NULL
+        );
+        // load views
+        $data['content'] = $this->load->view('user/codeActivation', $content_data, TRUE);
+        $this->load->view($this->template, $data);
+    }
+
 
     /**
      * Logout
@@ -94,25 +126,25 @@ class User extends Public_Controller {
 
         redirect('login');
     }
-
-
+   
     /**
      * Registration Form
      */
     function register()
     {  
+        $this->load->model('services_model');
         // validators
         $this->form_validation->set_error_delimiters($this->config->item('error_delimeter_left'), $this->config->item('error_delimeter_right'));
-        $this->form_validation->set_rules('username', lang('users input username'), 'required|trim|min_length[5]|max_length[30]|callback__check_username');
+        // $this->form_validation->set_rules('username', lang('users input username'), 'required|trim|min_length[5]|max_length[30]|callback__check_username');
         $this->form_validation->set_rules('first_name', lang('users input first_name'), 'required|trim|min_length[2]|max_length[32]');
         $this->form_validation->set_rules('last_name', lang('users input last_name'), 'required|trim|min_length[2]|max_length[32]');
-        $this->form_validation->set_rules('email', lang('users input email'), 'required|trim|max_length[256]|valid_email|callback__check_email');
-		    $this->form_validation->set_rules('phone', lang('users input phone'), 'required|trim|numeric|max_length[12]|min_length[11]');
+        $this->form_validation->set_rules('email', lang('users input email'),'required|trim|max_length[256]|valid_email|callback__check_email');
+		$this->form_validation->set_rules('phone', lang('users input phone'), 'required|trim|min_length[10]|max_length[32]');  
         $this->form_validation->set_rules('language', lang('users input language'), 'required|trim');
         $this->form_validation->set_rules('password', lang('users input password'), 'required|trim|min_length[5]');
-        $this->form_validation->set_rules('password_repeat', lang('users input password_repeat'), 'required|trim|matches[password]');
+        $this->form_validation->set_rules('password_repeat', lang('users input password_repeat'), 'required|trim|matches[password]'); 
 
-        if ($this->form_validation->run() == TRUE)
+        if ($this->form_validation->run() == TRUE)  
         {
             // save the changes
             $validation_code = $this->users_model->create_profile($this->input->post());
@@ -137,19 +169,17 @@ class User extends Public_Controller {
 				//replace
 				$str_1 = str_replace($placeholders, $vals_1, $rawstring);
 
-				$this -> email -> from($this->settings->site_email, $this->settings->site_name);
-				$this->email->to($this->input->post('email', TRUE));
+				$this->email->from($this->settings->site_email, $this->settings->site_name);
+				$this->email->to($this->input->post('email',TRUE));
 				//$this -> email -> to($user['email']);
-				$this -> email -> subject($email_template['title']);
-
-				$this -> email -> message($str_1);
-
-				$this->email->send();
-
+				$this->email->subject($email_template['title']);
+				$this->email-> message($str_1); 
+				$this->email->send();      
+                $this->session->set_userdata('tempUserEmail',$this->input->post('email'));
                 $this->session->language = $this->input->post('language');
                 $this->lang->load('users', $this->user['language']);
                 $this->session->set_flashdata('message', sprintf(lang('users msg register_success'), $this->input->post('first_name', TRUE)));
-				redirect(site_url('login'));
+				redirect(site_url('user/codeActivation'));  
             }
             else
             {
@@ -169,12 +199,13 @@ class User extends Public_Controller {
             'cancel_url'        => base_url(),
             'user'              => NULL,
             'password_required' => TRUE,
-            'country_select_option' => $this->country_select_option()
+            'country_select_option' => $this->country_select_option(),
+            'services' => $this->services_model->getAllServices()
         );
 
         // load views
-        $data['content'] = $this->load->view('user/profile_form', $content_data, TRUE);
-        $this->load->view($this->template, $data);
+        $data['content'] = $this->load->view('user/profile_form',$content_data,TRUE);
+        $this->load->view($this->template,$data);
     }
 
     function country_select_option()
@@ -376,6 +407,71 @@ class User extends Public_Controller {
         }
     }
 
+
+
+    /**
+     * Offer Page
+     *
+     * @param  string $accessCode
+     * @return int
+     */
+      function offerPage(){
+         // setup page header data
+        $this->set_title( lang('users title offerPage title') );
+         $this->load->model('jobs_model');
+        $data = $this->includes;
+        if($this->input->post('accessCodeSubmit')){ 
+            $res = $this->users_model->checkAccessCode($this->input->post('accessCode'));
+            if(is_array($res) && count($res) == 1){
+               foreach($res as $r) 
+                $this->session->set_userdata('accessCode',$this->input->post('accessCode'));
+                $this->session->set_userdata('accessUserId',$r['id']);
+                redirect('user/offerPage');  
+            }else{
+                $this->session->set_flashdata('alert','<div class="alert alert-danger">Invalid Access Code</div>');
+                redirect('user/offerPage'); 
+            }
+        }
+        if($this->uri->segment(3) == "logout"){
+           $this->session->unset_userdata('accessCode');
+           redirect('user/offerPage'); 
+        }
+       
+        $content_data = array( 
+            'jobsCreated' => $this->jobs_model->projectsCreatedByUser($this->session->userdata('accessUserId')),
+            'jobOffer'    => $this->jobs_model->assignedProjects($this->session->userdata('accessUserId'))
+          );
+        // load views
+        $data['content'] = $this->load->view('user/offerPage', $content_data, TRUE);
+        $this->load->view($this->template, $data);
+      }
+
+    
+
+      function getAllCitiesFromCountryId(){
+        $countryId = $this->input->post('countryId');
+        $this->session->set_userdata('setCountryId',$countryId);
+        $data = $this->users_model->getAllCitiesFromCountryId($countryId);
+        if(count($data) > 0){
+           foreach($data as $r){
+           echo '<option value="'.$r['id'].'">'.$r['name'].'</option>';
+          }
+        }else{
+           echo '<option>No Location Found</option>';
+        }
+        
+      }
+
+      function getServices(){
+        $data = $this->users_model->getServices($this->input->post('service_name')); 
+        if(count($data) > 0){
+           foreach($data as $r){  
+           echo '<li class="list-group-item selectservices2'.$r['id'].'" data-servicename'.$r['id'].'="'.$r['title'].'" data-serviceid'.$r['id'].'="'.$r['id'].'" onclick="selectservices2('.$r['id'].')" style="cursor:pointer">'.$r['title'].'</li>';
+          }
+        }else{
+           echo '<li class="list-group-item">No Location Found</li>';
+        }
+      }
 
 
 }

@@ -59,15 +59,36 @@
                 <?php echo $this->settings->site_name; ?>
               </a>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <?php // Nav bar left ?>
+            <div id="navbar" class="navbar-collapse collapse">     
                 <ul class="nav navbar-nav">
-                    <li class="<?php echo (uri_string() == '') ? 'active' : ''; ?>"><a href="<?php echo base_url('/'); ?>"><?php echo lang('core button home'); ?></a></li>
-										<li class="<?php echo (uri_string() == 'features') ? 'active' : ''; ?>"><a href="<?php echo base_url('/features'); ?>"><?php echo lang('core button features'); ?></a></li>
-                    <li class="<?php echo (uri_string() == 'merchant') ? 'active' : ''; ?>"><a href="<?php echo base_url('/merchant'); ?>"><?php echo lang('core button mecrhant'); ?></a></li>
-										<li class="<?php echo (uri_string() == 'protect') ? 'active' : ''; ?>"><a href="<?php echo base_url('/protect'); ?>"><?php echo lang('core button protect'); ?></a></li>
-										<li class="<?php echo (uri_string() == 'help') ? 'active' : ''; ?>"><a href="<?php echo base_url('/help'); ?>"><?php echo lang('core button help'); ?></a></li>
-										<li class="<?php echo (uri_string() == 'contact') ? 'active' : ''; ?>"><a href="<?php echo base_url('/contact'); ?>"><?php echo lang('core button contact'); ?></a></li>
+                      <li class="<?php echo (uri_string() == '') ? 'active' : ''; ?>">
+                    	<a href="<?php echo base_url('/'); ?>" style="color:#fff !important" >
+                    		<?php echo lang('core button home'); ?>
+                    		</a>
+                    	</li>
+						<li class="<?php echo (uri_string() == 'features') ? 'active' : ''; ?>">
+							<a href="<?php echo base_url('/features'); ?>" style="color:#fff !important">
+								<?php echo lang('core button features'); ?></a>
+						</li>
+                        <li class="<?php echo (uri_string() == 'merchant') ? 'active' : ''; ?>">
+                        	<a href="<?php echo base_url('/merchant'); ?>" style="color:#fff !important">
+                        		<?php echo lang('core button mecrhant'); ?>
+                        			
+                        		</a>
+                        </li>
+						<li class="<?php echo (uri_string() == 'protect') ? 'active' : ''; ?>">
+							<a href="<?php echo base_url('/protect'); ?>" style="color:#fff !important">
+								<?php echo lang('core button protect'); ?>
+									
+							</a>
+						</li>
+						<li class="<?php echo (uri_string() == 'help') ? 'active' : ''; ?>">
+							<a href="<?php echo base_url('/help'); ?>" style="color:#fff !important">
+								<?php echo lang('core button help'); ?></a></li> 
+						<li class="<?php echo (uri_string() == 'contact') ? 'active' : ''; ?>">
+							<a href="<?php echo base_url('/contact'); ?>">
+								<?php echo lang('core button contact'); ?></a>
+						</li>
 
                 </ul>
                 <?php // Nav bar right ?>
@@ -140,15 +161,15 @@
                 <i class="icon-paper-plane icons pull-right"></i>
               </a> -->
               <a href="<?php echo base_url('/account/projects'); ?>" class="list-group-item <?php echo (uri_string() == 'account/projects') ? 'active' : ''; ?>">
-                My Projects
+                  <?php echo lang('users my projects');?>
                 <i class="icon-paper-plane icons pull-right"></i>
               </a>
               <a href="<?php echo base_url('/account/services'); ?>" class="list-group-item <?php echo (uri_string() == 'account/services') ? 'active' : ''; ?>">
-                My Services
+                <?php echo lang('users my services');?>
                 <i class="icon-paper-plane icons pull-right"></i>
               </a>
               <a href="<?php echo base_url('/account/jobs'); ?>" class="list-group-item <?php echo (uri_string() == 'account/jobs') ? 'active' : ''; ?>">
-                Find Jobs
+                <?php echo lang('users find jobs');?>
                 <i class="icon-paper-plane icons pull-right"></i>
               </a>
 							<a href="<?php echo base_url('/account/exchange'); ?>" class="list-group-item <?php echo (uri_string() == 'account/exchange') ? 'active' : ''; ?>">
@@ -264,20 +285,28 @@
 						</div>
 						<div class="col-md-3">
 							<ul class="list-group">
-								<li class="list-group-item text-white"><strong><?php echo lang('core menu payment'); ?></strong></li>
-								<li class="list-group-item"><a href="<?php echo base_url('/account/money_transfer'); ?>"><?php echo lang('core menu transfer'); ?></li>
-								<li class="list-group-item"><a href="<?php echo base_url('/account/exchange'); ?>"><?php echo lang('core menu excnage'); ?></a></li>
-								<li class="list-group-item"><a href="<?php echo base_url('/account/request'); ?>"><?php echo lang('core menu request'); ?></a></li>
-								<li class="list-group-item"><a href="<?php echo base_url('/account/merchants'); ?>"><?php echo lang('core menu acceptance'); ?></a></li>
+							<li class="list-group-item text-white"><strong><?php echo lang('core menu payment'); ?></strong></li>
+							<li class="list-group-item"><a href="<?php echo base_url('/account/money_transfer'); ?>">
+								<?php echo lang('core menu transfer'); ?></li>
+							<li class="list-group-item"><a href="<?php echo base_url('/account/exchange'); ?>">
+								<?php echo lang('core menu excnage'); ?></a></li>
+							<li class="list-group-item"><a href="<?php echo base_url('/account/request'); ?>">
+								<?php echo lang('core menu request'); ?></a></li>
+							<li class="list-group-item"><a href="<?php echo base_url('/account/merchants'); ?>">
+								<?php echo lang('core menu acceptance'); ?></a></li>
 							</ul>
 						</div>
 						<div class="col-md-3">
 							<ul class="list-group">
 								<li class="list-group-item text-white"><strong><?php echo lang('core menu my_acc'); ?></strong></li>
-								<li class="list-group-item"><a href="<?php echo base_url('/account/history'); ?>"><?php echo lang('core menu history'); ?></a></li>
-								<li class="list-group-item"><a href="<?php echo base_url('/account/dispute'); ?>"><?php echo lang('core menu resolution'); ?></a></li>
-								<li class="list-group-item"><a href="<?php echo base_url('/account/identification'); ?>"><?php echo lang('core menu verifi'); ?></a></li>
-								<li class="list-group-item"><a href="<?php echo base_url('/account/user_settings'); ?>"><?php echo lang('core menu settings'); ?></a></li>
+								<li class="list-group-item"><a href="<?php echo base_url('/account/history'); ?>">
+									<?php echo lang('core menu history'); ?></a></li>
+								<li class="list-group-item"><a href="<?php echo base_url('/account/dispute'); ?>">
+									<?php echo lang('core menu resolution'); ?></a></li>
+								<li class="list-group-item"><a href="<?php echo base_url('/account/identification'); ?>">
+									<?php echo lang('core menu verifi'); ?></a></li>
+								<li class="list-group-item"><a href="<?php echo base_url('/account/user_settings'); ?>">
+									<?php echo lang('core menu settings'); ?></a></li>
 							</ul>
 						</div>
 					</div>

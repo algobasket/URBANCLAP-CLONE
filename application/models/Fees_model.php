@@ -72,7 +72,12 @@ class Fees_model extends CI_Model {
     $this->db->insert("bank_list",$data); 
     return true;
   }
-
+  
+  function deleteBankList($id){ 
+    $this->db->where('id',$id);
+    $this->db->delete("bank_list");  
+    return true;
+  }
 
 
 }

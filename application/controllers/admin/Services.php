@@ -41,6 +41,7 @@ class Services extends Admin_Controller {
           'parent_id' => $this->input->post('parentId'),
           'title'      => $this->input->post('title'),
           'name'       => $this->input->post('name'),
+          'pricing_detail'       => $this->input->post('price_detail'),
           'created'    => date('d-m-Y h:i:s'),
           'updated'    => date('d-m-Y h:i:s'),
           'status'    => 1
@@ -65,6 +66,7 @@ class Services extends Admin_Controller {
           'title'     => $this->input->post('title'),
           'name'      => $this->input->post('name'),
           'parent_id' => $this->input->post('parentId'),
+          'pricing_detail'       => $this->input->post('price_detail'),
           'updated'   => date('d-m-Y h:i:s'),
           'status'    => 1
         ));

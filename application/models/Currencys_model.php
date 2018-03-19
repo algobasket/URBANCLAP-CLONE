@@ -26,7 +26,7 @@ class Currencys_model extends CI_Model {
   
     function get_currencys()
 	{
-	   return $this->db->get("currencys");
+	   return $query = $this->db->select("*")->from('currencys')->get();
 	}
 
 }

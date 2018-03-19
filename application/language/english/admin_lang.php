@@ -334,3 +334,10 @@ $lang['admin vouchers activator']         = "Activator";
 $lang['admin vouchers voucher']           = "Voucher";
 $lang['admin vouchers detail']            = "Detail voucher";
 $lang['admin vouchers date']              = "Activation date";
+
+
+$lang['admin categories'] = "Categories";
+$lang['admin categories questions'] = "Categories Questions";
+$lang['admin services']   = "Services";  
+$lang['admin projects jobs']   = "Projects/Jobs"; 
+$lang['admin fees commission']   = "Fees / Commission";    

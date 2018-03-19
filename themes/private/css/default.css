@@ -29,7 +29,7 @@
 
 .header-bg {
   height: 230px;
-  background: #7867a7 url(../img/just3-bg.png);
+  background: #5e5e5f;
   padding-top: 70px;
   padding-bottom: 40px;
   color: #fff;
@@ -91,11 +91,11 @@
 }
 .footer {
     color: #828282;
-    background-color: #2c2b29;
+    background-color: #168394;
     margin-top: 50px;
 }
 .footer a {
-  color: #828282;
+  color: #fff;
 }
 .footer hr {
   border-top: 1px solid #383838;
@@ -105,7 +105,7 @@
     margin-top: 15px;
 }
 .footer .list-group-item {
-    background-color: #2c2b29;
+    background-color: #168394;
     border: none;
 }
 .footer .form-control {
@@ -226,7 +226,7 @@ legend {
   padding: 10px;
 }
 
-.radio-card .fee { background: #7f67aa none repeat scroll 0 0;
+.radio-card .fee { background: #168394 none repeat scroll 0 0;
   color: #fff;
   font-size: 12px;
   font-weight: bold;

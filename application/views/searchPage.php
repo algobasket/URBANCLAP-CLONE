@@ -19,6 +19,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.0/examples/jumbotron/jumbotron.css" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    
+    <!-- Custom BootStrapCss -->
+    <link href="https://v4-alpha.getbootstrap.com/assets/css/docs.min.css" rel="stylesheet">
 
 
     <style>
@@ -107,6 +110,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     color:#000 !important;
     font-family: 'Abel', sans-serif !important;
   }
+  #countryId,#cityId{
+    font-size: 15px;
+  }
 
     </style>
 
@@ -123,20 +129,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
 
-
-					<ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Blog</a>
+              <a class="nav-link" href="<?php echo base_url();?>features"><?php echo lang('users features');?></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">Become A Professional</a>
+              <a class="nav-link" href="<?php echo base_url();?>contact"><?php echo lang('users support');?></a>
             </li>
-						 <li class="nav-item active">
-							 <a class="nav-link" href="#">Refer & Earn</a>
-						 </li>
-					 </ul>
+             <li class="nav-item active">
+               <a class="nav-link" href="<?php echo base_url();?>help"><?php echo lang('users help');?></a>
+             </li>
+           </ul>
 
-             <a class="nav-link btn btn-danger btn-sm" href="<?php echo base_url();?>login">Login/Signup</a>
+            <?php 
+            if ($this->session->userdata('logged_in')){
+                 if ($this->user['is_admin']){ ?>
+                  <a class="nav-link btn btn-danger btn-sm" href="<?php echo base_url();?>admin">
+                    <?php echo lang('users title login');?>/<?php echo lang('users title signup');?>
+                    </a>
+                  <?php }else{ ?>
+                   <a class="nav-link btn btn-danger btn-sm" href="<?php echo base_url();?>account/dashboard"><?php echo lang('users title dasboard');?></a>
+                  
+                <?php    } 
+
+                  }else{ ?>
+                <a class="nav-link btn btn-danger btn-sm" href="<?php echo base_url();?>login">
+                   <?php echo lang('users title login');?>/<?php echo lang('users title signup');?>
+                </a>
+                <?php } ?>
 
 				 </div>
 			 </nav>
@@ -151,33 +171,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        <div class="card flex-md-row mb-4 box-shadow h-md-250" style="background-color:#ced1dc">
          <div class="card-body d-flex flex-column">
             <div class="row">
-             <h4 style="width:100%">&nbsp;&nbsp;&nbsp;Browse Jobs on <?php echo $this->settings->site_name; ?></h4>
+            <h4 style="width:100%;color:#000">&nbsp;&nbsp;&nbsp;Recruit better with <?php echo $this->settings->site_name; ?></h4>
              <p>&nbsp;&nbsp;&nbsp;Get instant access to reliable and affordable services</p>
            </div>
-            <?php echo form_open('welcome/search');?>
 
+
+            <?php echo form_open('welcome/search');?>
               <div class="row">
-                <div class="col-md-2"><select name="state" class="form-control form-control-lg" >
-                        <?php foreach($states as $state): ?>
-                         <option value="<?php echo $state;?>"><?php echo $state;?></option>
+                <div class="col-md-2">
+                  <select name="countryId" class="form-control form-control-lg" id="countryId" onchange="countryChange(this.value)">
+                        <?php foreach($countries as $country): ?>
+                         <option value="<?php echo $country['id'];?>" 
+                          <?php echo ($country['id'] == $setCountryId) ? "selected" : ""; ?> >
+                          <?php echo $country['name'];?>
+                          </option>
                        <?php endforeach;?>
-                  </select>
+                  </select> 
                 </div>
                 <div class="col-md-4">
-                <input type="text" name="locality" class="form-control form-control-lg" placeholder="Enter your locality here" required/>
-                 Remark Area or landmark residing your place
+                   <select name="cityId" class="form-control form-control-lg" id="cityId" onchange="cityChange(this.value)" >
+                        <?php foreach($cities as $city): ?>
+                         <option value="<?php echo $city['id'];?>" 
+                          <?php echo ($city['id'] == $setCityId) ? "selected" : ""; ?>>
+                          <?php echo $city['name'];?></option>
+                       <?php endforeach;?> 
+                </select> 
+                <ul class="list-group searchLocality" style="position:absolute;z-index:99999;display:none"></ul>
+                 <?php echo lang('users locality text');?>
                 </div>
                 <div class="col-md-4">
-                <input type="text" name="services" class="form-control form-control-lg" placeholder="Search for a service" required/>
-                 E.g. Tutor at Home, Plumber, Wedding Photographer
+                  <input type="text" name="services" class="form-control form-control-lg services" placeholder="Search for a service" required onkeyup="searchService(this.value)" autocomplete="off" 
+                  value="<?php echo $getServiceNameFromId;?>" />    
+                <ul class="list-group searchService" style="position:absolute;z-index:99999;display:none"></ul>
+                  <?php echo lang('users services text');?>
+                  <input type="hidden" name="serviceId" id="serviceId" value="<?php echo $setServiceId;?>"/> 
                 </div>
                 <div class="col-md-2">
-                  <input type="submit" class="btn btn-danger btn-lg" name="searchBtn" value="Search &raquo;"/>
+                  <input type="submit" class="btn btn-danger btn-lg" name="searchBtn" value="Filter &raquo;"/>
                 </div>
               </div>
-
-
             <?php echo form_close();?>
+
+
+
          </div>
        </div>
 
@@ -186,38 +222,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
 
     </main>
-
+    
     <div class="container">
       <hr>
-     <h3>
-       <small><a href="<?php echo base_url().'welcome';?>" class="nav-link-custom" style="font-size:16px">Home</a> / </small>
-       <small><a href="<?php echo base_url().'/'.$location;?>" class="nav-link-custom" style="font-size:16px"><?php echo $location;?> / </a></small>
-       <small><a href="<?php echo base_url().'/'.$location.'/'.$serviceCategory;?>" class="nav-link-custom" style="font-size:16px"><?php echo $serviceCategory;?> / </a></small>
-       <?php if($locality){ ?>
-         <small><a href="<?php echo base_url().'/'.$location.'/'.$serviceCategory.'/'.$locality;?>" class="nav-link-custom" style="font-size:16px"><?php echo $locality;?> / </a></small>
-       <?php } ?>
-
-     </h3>
+   
+     <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<?php echo base_url();?>">Home</a></li>
+        <?php if($getCountryNameFromId){ ?>
+        <li class="breadcrumb-item active" ><?php echo $getCountryNameFromId;?></li>
+        <?php } ?>
+        <?php if($getCityNameFromId){ ?>
+        <li class="breadcrumb-item active" aria-current="page"><?php echo $getCityNameFromId;?></li>
+        <?php } ?>
+        <?php if($getServiceNameFromId){ ?>
+        <li class="breadcrumb-item active" aria-current="page"><?php echo $getServiceNameFromId;?></li>
+        <?php } ?>
+      </ol>
+    </nav>
     </div>
 
+
+
+
     <div class="container">
-     <center></center>
-     <?php if($this->uri->segment(4) && $this->uri->segment(5)==null){ ?>
-       <ul class="list-group">
-        <li class="list-group-item active" style="background-color:#168394"><center><h2><?php echo ucfirst($this->uri->segment(4));?></h2></center></li>
-         <?php foreach($getServicesFromCategoryName as $r) : ?>
-        <li class="list-group-item"><?php echo anchor('welcome/search/'.$this->uri->segment(3).'/'.$this->uri->segment(4).'/'.$r['name'],$r['title']);?></li>
-      <?php endforeach;?>
-      </ul>
-     <?php } ?>
-     <?php echo form_open('welcome/searchPost');?>
-     <?php if($this->uri->segment(5)){ ?>
-       <?php foreach($getCategoryQuestionsFromCategoryNameServiceName as $r):?>
+    <?php echo $this->session->flashdata('alert');?>
+    
+       <?php 
+        if(is_array($getCategoryQuestionsFromServiceId) && count($getCategoryQuestionsFromServiceId) > 0){
+            echo form_open('welcome/searchPost');
+       foreach($getCategoryQuestionsFromServiceId as $r){ ?> 
+
          <?php
-         $jsonArrays = array();
+         $jsonArrays = array();  
          $jsonArrays = json_decode($r['json'],true);
-               if(is_array($jsonArrays) && array_key_exists('radio',$jsonArrays)){
-               ?>
+            if(is_array($jsonArrays) && array_key_exists('radio',$jsonArrays)){ ?>
+
                <ul class="list-group">
                 <li class="list-group-item active" style="background-color:#168394"><center><h2><?php echo $r['title'];?></h2></center></li>
                 <?php $i = 1;foreach($jsonArrays['radio'] as $key => $jsonArray){ ?>
@@ -240,22 +280,243 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php
               }
          ?>
-
-    <?php endforeach;?>
-  <?php } ?>
-    <br>
+    <?php } ?>
+         <br>
       <input type="hidden" value="<?php echo $this->uri->segment(4);?>" name="categoryName" />
       <input type="hidden" value="<?php echo $this->uri->segment(5);?>" name="serviceName" />
-    <?php if($this->uri->segment(5)){ ?>
        <?php if($user['id']){ ?>
            <input type="submit" name="postQuestions" class="btn btn-success btn-lg" />
        <?php }else{ ?>
            <a href="<?php echo base_url();?>user/register" class="btn btn-success btn-lg">Signup Before Submit</a>
        <?php } ?>
+       <?php echo form_close();?>
+    <?php  }else{ ?>
+        <!-- <center><div class="alert alert-warning">Sorry , no jobs in this region</div></center> -->
+        <div class="bd-callout bd-callout-info">
+        <h3>Tell us more what you need done</h3>
+        <p>Get free quotes from skilled workers within minutes, view profiles, ratings and portfolios and chat with them. Pay the worker only when you are 100% satisfied with their work.</p>
+  <?php echo form_open_multipart('welcome/searchPost');?> 
+  <div class="form-group">
+    <label for="exampleInputEmail1">Job Title</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Job Title" required name="jobTitle" />
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Employer Name</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Your Name" required name="employerName" />
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Employer Code or Access Number</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Employer ID or Code or Number" name="employerCode" />
+  </div>
+  <div class="form-group">
+    <label for="exampleSelect1">Job Type</label>
+    <select class="form-control" id="exampleSelect1" name="serviceId">
+      <?php foreach($getAllServices as $service){ ?>
+        <option value="<?php echo $service['id'];?>" 
+          <?php echo ($service['id'] == $setServiceId) ? "selected":"" ;?> >
+          <?php echo $service['title'];?></option>
+      <?php } ?>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Work Place</label>
+     <input type="text" class="form-control controls" id="pac-input" placeholder="Work Place" required name="workPlace" />
+     <div id="map"></div>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&sensor=false"></script> -->
+    <script>
+      // This example adds a search box to a map, using the Google Place Autocomplete
+      // feature. People can enter geographical searches. The search box will return a
+      // pick list containing a mix of places and predicted search terms.
 
-    <?php } ?>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-    <?php echo form_close();?>
+      function initAutocomplete() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -33.8688, lng: 151.2195},
+          zoom: 13,
+          mapTypeId: 'roadmap'
+        });
+
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+
+        var markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            if (!place.geometry) {
+              console.log("Returned place contains no geometry");
+              return;
+            }
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              icon: icon,
+              title: place.name,
+              position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          map.fitBounds(bounds);
+        });
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBDHsd26aj9wzu4nzXXT96ArLaXunKHRI&libraries=places&callback=initAutocomplete"
+         async defer></script>
+  </div>
+  <div class="form-group">
+    <label for="exampleSelect2">Number of employees looking for</label>
+    <select multiple class="form-control" id="exampleSelect2" name="noOfEmployees">
+      <option value="1-10" selected >1 - 10</option>
+      <option value="11-20">11 - 20</option>
+      <option value="21-30">21 - 30</option>
+      <option value="31-50">31 - 50</option>
+      <option value="50<">50 < </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Remuneration </label>
+     
+     <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <button class="btn btn-outline-secondary dropdown-toggle currencyType" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">USD</button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="javascript:void(0)" onclick="currencyType('USD')">USD</a>
+            <a class="dropdown-item" href="javascript:void(0)" onclick="currencyType('EURO')">EURO</a>
+            <a class="dropdown-item" href="javascript:void(0)" onclick="currencyType('NARNIA')">NARNIA</a>
+            <div role="separator" class="dropdown-divider"></div>
+            <a class="dropdown-item" href="javascript:void(0)" onclick="currencyType('BTC')">BTC</a>
+          </div>
+        </div>
+        <input type="text" class="form-control" placeholder="Budget for this work" aria-label="Text input with dropdown button" name="budget" />
+        <div class="input-group-append">
+          <button class="btn btn-primary btn-outline-secondary dropdown-toggle jobKind" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">HOURLY</button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="javascript:void(0)" onclick="jobKind('HOURLY')">HOURLY</a>
+            <a class="dropdown-item" href="javascript:void(0)" onclick="jobKind('FIXED')">FIXED</a>
+          </div>
+        </div>
+     </div>
+     <input type="hidden" value="USD" name="currencyTypeInput"/>
+     <input type="hidden" value="HOURLY" name="jobTypeInput" /> 
+    <script>
+      function currencyType(x){
+        $('.currencyType').html(x);
+        $('.currencyTypeInput').val(x);
+      }
+      function jobKind(x){
+        $('.jobKind').html(x);
+        $('.jobTypeInput').val(x);
+      }
+    </script>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Date of execution </label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="When the job need to start" name="executionDate" >
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Announcement Date </label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Announcement Date" name="announcementDate">
+  </div>
+  <div class="form-group">
+    <label for="exampleTextarea">Description of Job</label>
+    <textarea class="form-control" id="exampleTextarea" rows="3" required name="jobDescription"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">Document Attach</label>
+    <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" name="jobDocument">
+    <small id="fileHelp" class="form-text text-muted">Upload document file in docx,pdf,text,excel and image files</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Mode of Payment </label>
+    <select name="payment_method" class="form-control">
+      <option value="cash">Cash</option>
+      <option value="bank">Bank</option>
+    </select>
+  </div>
+  <fieldset class="form-group">
+    <legend>Job Marker (Optional Upgrades)</legend>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input" name="jobMarker[]" id="optionsRadios1" value="featured" checked>
+        <h4><label class="badge badge-warning">Mark This Job As Featured - 4.00$</label>
+          <br><span style="font-size: 14px;color:#000">(Featured jobs attract higher-quality bids and are displayed prominently in the 'Featured Jobs and Contests' page.)</span></h4>
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="checkbox" class="form-check-input" name="jobMarker[]" id="optionsRadios2" value="urgent">
+        <h4><label class="badge badge-danger">Mark This Job As Urgent - 3.00$</label>
+          <br><span style="font-size: 14px;color:#000">(Make your job stand out and let seekers know that your job is time sensitive)</span></h4>
+      </label>
+    </div>
+    <div class="form-check">    
+    <label class="form-check-label">
+        <input type="checkbox" class="form-check-input" name="jobMarker[]" id="optionsRadios2" value="private">
+        <h4><label class="badge badge-success">Mark This Job As Private - 5.00$</label>
+          <br><span style="font-size: 14px;color:#000">(Hide project details from search engines and users that are not logged in, for projects that you need to keep confidential.)</span></h4>
+      </label>
+    </div>
+  </fieldset>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input">
+      I agree all the detail entered are correct as according to me.
+    </label>
+  </div><br>
+  <input type="submit" class="btn btn-primary btn-lg" name="postJobSubmit" value="Post My Job"/>
+</form>
+        </div>
+    <?php };?> 
+    
+
+    
+
+
+
+
+
+
     </div>
 
     <br><br>
@@ -364,20 +625,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      </div>
    </div><!--.container-->
    <hr>
-  <div class="container">
+<div class="container">
     <div class="row">
-      <div class="col-md-6"><img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto/v1497606505/appMock.png" width="400"/></div>
+      <div class="col-md-6"><img src="<?php echo base_url();?>assets/img/appMock.webp" width="400"/></div>
       <div class="col-md-6">
            <center style="margin-top:60px">
-           <img src="https://res.cloudinary.com/urbanclap/image/upload/v1488200693/googlePlay.png" />
-           <img src="https://res.cloudinary.com/urbanclap/image/upload/v1488200693/appStore.png" />
+            <img src="<?php echo base_url();?>assets/img/googlePlay.png" />
+           <img src="<?php echo base_url();?>assets/img/appStore.png" />
            </center>
-            <center style="margin-top:30px"><h3>Download Our App</h3></center>
-            <h6 class="nav-link-custom">Choose and book from 100+ services and track them on the go with the UrbanClap App</h6>
+            <center style="margin-top:30px"><h3><?php echo lang('users download app');?></h3></center>
+            <h6 class="nav-link-custom"><?php echo lang('users download text');?> <?php echo $this->settings->site_name; ?> App</h6>
 
-              <h6>Send a link via SMS to install the app</h6>
+              <h6><?php echo lang('users download link');?></h6>
               <input type="text" name="" class="form-control form-control-lg" /><br>
-              <center><button class="btn btn-primary">Text App Link</button> </center><br>
+              <center><button class="btn btn-danger">Text App Link</button> </center><br>
 
       </div>
     </div>
@@ -386,56 +647,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="container">
 
   </div>
-
-	<footer class="container py-5">
+   <hr>
+  <footer class="container py-5">
       <div class="row">
         <div class="col-12 col-md">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+           <?php echo $this->settings->site_name; ?>
           <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
         </div>
         <div class="col-6 col-md">
-          <h5>Network</h5>
+          <h5><?php echo lang('core menu support'); ?></h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Browse Categories</a></li>
-            <li><a class="text-muted" href="#">Browse Jobs</a></li>
-            <li><a class="text-muted" href="#">Browse Job Seeker</a></li>
-            <li><a class="text-muted" href="#">Stuff for developers</a></li>
-            <li><a class="text-muted" href="#">Showcase</a></li>
-            <li><a class="text-muted" href="#">Forum</a></li>
+            <li><a class="text-muted" href="<?php echo base_url('faq'); ?>">
+              <?php echo lang('core menu faq'); ?></a></li>
+            <li><a class="text-muted" href="<?php echo base_url('contact'); ?>">
+            <?php echo lang('core menu feedback'); ?></a></li>
+            <li><a class="text-muted" href="<?php echo base_url('/account/support'); ?>">
+              <?php echo lang('core menu ticket'); ?></a></li>
+            <li><a class="text-muted" href="<?php echo base_url('developers'); ?>">
+              <?php echo lang('core menu api_doc'); ?></a></li>
           </ul>
         </div>
         <div class="col-6 col-md">
-          <h5>About</h5>
+          <h5><?php echo lang('core menu payment'); ?></h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">About us</a></li>
-            <li><a class="text-muted" href="#">How it Works</a></li>
-            <li><a class="text-muted" href="#">Mobile App</a></li>
-            <li><a class="text-muted" href="#">Security</a></li>
-            <li><a class="text-muted" href="#">Fee & Charges</a></li>
-              <li><a class="text-muted" href="#">Investor</a></li>
-                <li><a class="text-muted" href="#">Sitemap</a></li>
+            <li><a class="text-muted" href="<?php echo base_url('/account/money_transfer'); ?>"><?php echo lang('core menu transfer'); ?></a></li>
+            <li><a class="text-muted" href="<?php echo base_url('/account/exchange'); ?>"><?php echo lang('core menu excnage'); ?></a></li>
+            <li><a class="text-muted" href="<?php echo base_url('/account/request'); ?>"><?php echo lang('core menu request'); ?></a></li>
+            <li><a class="text-muted" href="<?php echo base_url('/account/merchants'); ?>"><?php echo lang('core menu acceptance'); ?></a></li>
           </ul>
         </div>
+        
         <div class="col-6 col-md">
-          <h5>Get in touch</h5>
+          <h5><?php echo lang('core menu my_acc'); ?></h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Get support</a></li>
-            <li><a class="text-muted" href="#">Career</a></li>
-            <li><a class="text-muted" href="#">Community</a></li>
-            <li><a class="text-muted" href="#">Affiliate Program</a></li>
-            <li><a class="text-muted" href="#">Merchandise</a></li>
-            <li><a class="text-muted" href="#">Contact Us</a></li>
+            <li><a class="text-muted" href="<?php echo base_url('/account/history'); ?>"><?php echo lang('core menu history'); ?></a></li>
+            <li><a class="text-muted" href="<?php echo base_url('/account/dispute'); ?>"><?php echo lang('core menu resolution'); ?></a></li>
+            <li><a class="text-muted" href="<?php echo base_url('/account/identification'); ?>"><?php echo lang('core menu verifi'); ?></a></li>
+            <li><a class="text-muted" href="<?php echo base_url('/account/user_settings'); ?>"><?php echo lang('core menu settings'); ?></a></li>
           </ul>
-        </div>
-        <div class="col-6 col-md">
-          <h5>Press</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">In the News</a></li>
-            <li><a class="text-muted" href="#">Press Release</a></li>
-            <li><a class="text-muted" href="#">Awards</a></li>
-            <li><a class="text-muted" href="#">Testimonials</a></li>
-          </ul>
-        </div>
+        </div> 
+ 
       </div>
     </footer>
 
@@ -481,8 +732,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        
         <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
         <script src="https://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
         <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
@@ -530,5 +781,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
      });
         </script>
+         <script>
+                function countryChange(x){
+                  var data = {
+                        'countryId' : $('#countryId').val(),
+                      };
+                     $.ajax({
+                      type:'POST',
+                      url:'<?php echo base_url();?>user/getAllCitiesFromCountryId', 
+                      data:data,
+                      success:function(html){
+                        $('#cityId').html(html).show();
+                        //console.log(html);
+                      }
+                    });
+                  }
+                 
+                  function searchService(x){
+                       var data = {
+                                    'service_name':x
+                                  };
+                     $.ajax({
+                      type:'POST',
+                      url:'<?php echo base_url();?>user/getServices', 
+                      data:data,
+                      success:function(html){
+                        $('.searchService').html(html).show();
+                           console.log(html);
+                      }
+                    });  
+                  }
+                  function selectservices2(x){
+                     var servicename = $('.selectservices2'+x).data('servicename'+x);
+                     var serviceid   = $('.selectservices2'+x).data('serviceid'+x); 
+                     $('.services').val(servicename);
+                     $('#serviceId').val(serviceid);
+                     $('.searchService').hide();  
+                  }
+              </script>
   </body>
 </html>

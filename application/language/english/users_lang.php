@@ -8,6 +8,7 @@ $lang['users title forgot']                   = "Forgot Password";
 $lang['users title login']                    = "Login";
 $lang['users title profile']                  = "Profile";
 $lang['users title register']                 = "Register";
+$lang['users title signup']                   = "Signup";
 $lang['users title user_add']                 = "Add User";
 $lang['users title user_delete']              = "Confirm Delete User";
 $lang['users title user_edit']                = "Edit User";
@@ -380,4 +381,40 @@ $lang['users vouchers success']               = "Voucher successfully activated!
 $lang['users vouchers error_new']             = "Check the correctness of the entered values!";
 $lang['users vouchers success_new']           = "Voucher successfully created!";
 
-$lang['postQuestionsSuccess'] = "Your Request has been submitted and we will get touch with you soon";
+$lang['postQuestionsSuccess'] = "Thanks for using our plateform .Your Request has been submitted and we will get touch with you soon";
+
+$lang['users my projects'] = "My Projects"; 
+$lang['users my services'] = "My Services";
+$lang['users find jobs']   = "Find Jobs";   
+
+
+
+$lang['users slider header text']    = "Recruit better"; 
+$lang['users slider header small text']    = "Get instant access to reliable and affordable services";  
+$lang['users slider worker text']    = "Workers"; 
+$lang['users slider services text']  = "Services";
+$lang['users slider onlinenow text'] = "Online Now";
+$lang['users below text']            = "Simple and reliable solutions";  
+$lang['users below text small']      = "Fast. Available. No problem."; 
+$lang['users recommended category services']  = "Recommended Category and Services";   
+$lang['users locality text']    = "Remark Area or city residing your country";
+$lang['users services text']    = "E.g. Tutor at Home, Plumber, Wedding Photographer";  
+
+$lang['users activation code email'] = "Enter Activation Code Sent To Your Email";
+$lang['users enter activation code'] = "Enter the activation code";
+
+$lang['users download app'] = "Download Our App"; 
+$lang['users download text'] = "Choose and book from 100+ services and track them on the go with the"; 
+$lang['users download link'] = "Send a link via SMS to install the app";  
+
+$lang['users enter access page'] = "Access Page";  
+$lang['users enter access code'] = "Enter Access Code";
+$lang['users enter access code success'] = "Access Code Verified";
+$lang['users enter access page header'] = "All In One Place - Access Page"; 
+$lang['users enter accessCode'] = "Access Code";    
+
+$lang['users features'] = "Features"; 
+$lang['users support'] = "Support"; 
+$lang['users help']     = "Help"; 
+
+

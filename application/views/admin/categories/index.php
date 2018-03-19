@@ -6,6 +6,7 @@
   <th>#</th>
   <th>Title</th>
   <th>Name</th>
+  <th>Img</th>
   <th>Created<br>Updated</th>
   <th></th>
   </tr>
@@ -15,7 +16,8 @@
     <td><?php echo $i;?></td>
     <td><?php echo $category['title'];?></td>
     <td><?php echo $category['name'];?></td>
-    <td><?php echo $category['created'];?><br><?php echo $category['updated'];?></td>
+    <td><img src="<?php echo base_url() .'uploads/admin/'. $category['img'];?>" width="100"/></td>
+     <td><?php echo $category['created'];?><br><?php echo $category['updated'];?></td>
     <td><?php echo anchor('admin/categories/update/'.$category['id'],'Edit');?>
       <br><?php echo anchor('admin/categories/delete/'.$category['id'],'Del');?></td>
     </tr>

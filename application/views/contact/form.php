@@ -1,10 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<div class="header-bg">
+        <div class="header-bg">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-9 col-sm-6 col-xs-7">
-						<h3><?php echo lang('core button contact'); ?></h3>
+						<h3 style="color:#000 !important"><?php echo lang('core button contact'); ?></h3>
 					</div>
 				</div>
 			</div>

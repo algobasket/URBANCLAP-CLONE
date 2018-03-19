@@ -24,7 +24,6 @@ class Currency extends Admin_Controller {
     {
         // get currencys
         $currencys = $this->currencys_model->get_currencys();
-
         // setup page header data
 		 $this
 			->add_css_theme('summernote.css')
@@ -36,7 +35,7 @@ class Currency extends Admin_Controller {
 
         // set content data
         $content_data = array(
-            'currencys'   	=> $currencys,
+            'currencys'   	=> $currencys, 
             'cancel_url' 	=> "/admin",
         );
 
@@ -71,8 +70,22 @@ class Currency extends Admin_Controller {
 		$extra5_check = intval($this->input->post("extra5_check"));
 		$extra5_name = $this->input->post("extra5_name");
 		$extra5_code = $this->input->post("extra5_code");
-		$extra5_rate = abs($this->input->post("extra5_rate"));
+		$extra5_rate = abs($this->input->post("extra5_rate")); 
 		
+		$extra6_check = intval($this->input->post("extra6_check"));
+		$extra6_name = $this->input->post("extra6_name");
+		$extra6_code = $this->input->post("extra6_code");
+		$extra6_rate = abs($this->input->post("extra6_rate"));
+
+		$extra7_check = intval($this->input->post("extra7_check"));
+		$extra7_name = $this->input->post("extra7_name");
+		$extra7_code = $this->input->post("extra7_code");
+		$extra7_rate = abs($this->input->post("extra7_rate"));
+
+		$extra8_check = intval($this->input->post("extra8_check"));
+		$extra8_name = $this->input->post("extra8_name");
+		$extra8_code = $this->input->post("extra8_code");
+		$extra8_rate = abs($this->input->post("extra8_rate"));
 
 		// update
 		$this->currencys_model->updateCurrencys(
@@ -99,6 +112,18 @@ class Currency extends Admin_Controller {
 				"extra5_name" 	=> $extra5_name,
 				"extra5_code" 	=> $extra5_code,
 				"extra5_rate" 	=> $extra5_rate,
+				"extra6_check" 	=> $extra6_check,
+				"extra6_name" 	=> $extra6_name,
+				"extra6_code" 	=> $extra6_code,
+				"extra6_rate" 	=> $extra6_rate,
+				"extra7_check" 	=> $extra7_check,
+				"extra7_name" 	=> $extra7_name,
+				"extra7_code" 	=> $extra7_code,
+				"extra7_rate" 	=> $extra7_rate,
+				"extra8_check" 	=> $extra8_check,
+				"extra8_name" 	=> $extra8_name,
+				"extra8_code" 	=> $extra8_code,
+				"extra8_rate" 	=> $extra8_rate
 			)
 		);
 		

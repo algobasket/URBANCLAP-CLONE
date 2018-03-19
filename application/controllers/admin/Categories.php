@@ -32,15 +32,26 @@ class Categories extends Admin_Controller {
       $content_data = array(
        'user'     => $user
      );
+       //start of file upload code
+        $config['upload_path'] = './uploads/admin/';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['file_name'] = time().rand(1,9999999);
+        $this->load->library('upload',$config);
+        
+
       if($this->input->post('createBtn')){
-        $this->categories_model->createCategory(array(
-          'parent_id'   => $this->input->post('categoryId'),
-          'title'   => $this->input->post('title'),
-          'name'    => $this->input->post('name'),
-          'created' => date('d-m-Y h:i:s'),
-          'updated' => date('d-m-Y h:i:s')
-        ));
-        $this->session->set_flashdata('alert','<div class="alert alert-success">Category Created Successfully</div>');
+        if($this->upload->do_upload('file')){
+            $uploadData = $this->upload->data();
+            $this->categories_model->createCategory(array(
+                'parent_id'   => $this->input->post('categoryId'),
+                'title'   => $this->input->post('title'),
+                'name'    => $this->input->post('name'),
+                'img'     => $uploadData['file_name'],
+                'created' => date('d-m-Y h:i:s'),
+                'updated' => date('d-m-Y h:i:s')
+            ));
+           $this->session->set_flashdata('alert','<div class="alert alert-success">Category Created Successfully</div>');
+        }
       }
       $content_data['categories'] = $this->categories_model->getAllCategory();
       $data['content'] = $this->load->view('admin/categories/create',$content_data,TRUE);

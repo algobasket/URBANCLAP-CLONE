@@ -26,6 +26,14 @@ class Services_model extends CI_Model{
    return $query->result_array();
    }
 
+   function getServiceNameFromId($id){
+     $query = $this->db->select('title')
+                       ->from('services')
+                       ->where('id',$id)
+                       ->get();
+    return $query->result_array()[0]['title'];
+   }
+
    function getAllServices(){
      $query = $this->db->select('services.*,categories.title as categoryName')
                        ->from('services')

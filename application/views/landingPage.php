@@ -19,6 +19,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.0/examples/jumbotron/jumbotron.css" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
 
 
     <style>
@@ -107,9 +109,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     color:#000 !important;
     font-family: 'Abel', sans-serif !important;
   }
+  #countryId,#cityId{
+    font-size: 15px;
+  }
 
     </style>
-
+<script src="https://raw.githubusercontent.com/karacas/imgLiquid/master/js/imgLiquid.js"></script>
+<script>
+  $(document).ready(function() {
+  $(".imgLiquidFill").imgLiquid();
+});
+</script>
   </head>
 
   <body>
@@ -122,22 +132,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				 </button>
 
 				 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-					<ul class="navbar-nav mr-auto">
+				<ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Blog</a>
+              <a class="nav-link" href="<?php echo base_url();?>features"><?php echo lang('users features');?></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">Become A Professional</a>
+              <a class="nav-link" href="<?php echo base_url();?>contact"><?php echo lang('users support');?></a>
             </li>
-						 <li class="nav-item active">
-							 <a class="nav-link" href="#">Refer & Earn</a>
-						 </li>
-					 </ul> 
-             <a class="nav-link btn btn-danger btn-sm" href="<?php echo base_url();?>login">Login/Signup</a>
-				 </div>
+             <li class="nav-item active">
+               <a class="nav-link" href="<?php echo base_url();?>help"><?php echo lang('users help');?></a>
+             </li>
+           </ul>
+
+           
+
+
+            <?php 
+            if ($this->session->userdata('logged_in')){
+                 if ($this->user['is_admin']){ ?>
+                  <a class="nav-link btn btn-danger btn-sm" href="<?php echo base_url();?>admin">
+                    <?php echo lang('users title login');?>/<?php echo lang('users title signup');?>
+                    </a>
+                  <?php }else{ ?>
+                   <a class="nav-link btn btn-danger btn-sm" href="<?php echo base_url();?>account/dashboard"><?php echo lang('users title dasboard');?></a>
+                  
+                <?php    } 
+
+                  }else{ ?>
+                <a class="nav-link btn btn-danger btn-sm" href="<?php echo base_url();?>login">
+                   <?php echo lang('users title login');?>/<?php echo lang('users title signup');?>
+                </a>
+                <?php } ?>
+            
+				 
+         </div>
 			 </nav>
 
-		<nav class="navbar navbar-expand-lg navbar-light bg-light rounded" style="margin-top:15px">
+		<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light rounded" style="margin-top:15px">
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
           More
@@ -153,12 +184,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <a class="nav-link nav-link-custom" href="#" style="float:left"><center><i class="far fa-user fa-3x"></i></center>Personal & More</a>
           <a class="nav-link nav-link-custom" href="#" style="float:left"><center><i class="fas fa-calendar fa-3x"></i></center>Lessons & Hobbies</a>
         </center>
-          <!-- <a class="form-inline my-2 my-md-0">
-            Paytm Balance Rs 1000
-          </a> -->
         </div>
 
-      </nav>
+      </nav> -->
 
 		</div>
 
@@ -166,7 +194,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <main role="main">
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron" style="height:250px;background-image:url(https://res.cloudinary.com/urbanclap/image/upload/fl_progressive:steep/v1490770948/2x_1.jpg)">
+      <div class="jumbotron" style="height:250px;background-image:url(<?php echo base_url();?>assets/img/bg3.png)">
 
       </div>
 
@@ -175,29 +203,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="col-md-12">
        <div class="card flex-md-row mb-4 box-shadow h-md-250" style="background-color:#ced1dc">
          <div class="card-body d-flex flex-column">
+            
             <div class="row">
-             <h4 style="width:100%">&nbsp;&nbsp;&nbsp;Hire expert workers for any job, online</h4>
-             <p>&nbsp;&nbsp;&nbsp;Get instant access to reliable and affordable services</p>
+             <h4 style="width:100%;color:#000">&nbsp;&nbsp;&nbsp;<?php echo lang('users slider header text');?> <?php echo $this->settings->site_name; ?></h4>
+             <p>&nbsp;&nbsp;&nbsp;<?php echo lang('users slider header small text');?></p>
            </div>
-            <?php echo form_open('welcome/landingPage');?>
+            
 
-              <div class="row">
-                <div class="col-md-2"><select name="state" class="form-control form-control-lg" >
-                        <?php foreach($states as $state): ?>
-                         <option value="<?php echo $state;?>"><?php echo $state;?></option>
+            <?php echo form_open('welcome/landingPage');?>
+                  <div class="row">
+                <div class="col-md-2">
+                  <select name="countryId" class="form-control form-control-lg" id="countryId" onchange="countryChange(this.value)">
+                        <?php foreach($countries as $country): ?>
+                         <option value="<?php echo $country['id'];?>" 
+                          <?php echo ($country['id'] == $currentCountryId) ? "selected" : ""; ?> >
+                          <?php echo $country['name'];?></option>
                        <?php endforeach;?>
-                  </select>
+                  </select> 
                 </div>
-                <div class="col-md-8">
-                <input type="text" name="services" class="form-control form-control-lg" placeholder="Search for service" required/>
-                 E.g. Tutor at Home, Plumber, Wedding Photographer
+                <div class="col-md-4">
+                 <select name="cityId" class="form-control form-control-lg" id="cityId" onchange="cityChange(this.value)">
+                        <?php foreach($cities as $city): ?>
+                          <option value="<?php echo $city['id'];?>"
+                            <?php echo ($city['id'] == $currentCityId) ? "selected" : ""; ?> >
+                            <?php echo $city['name'];?></option>
+                       <?php endforeach;?> 
+                </select> 
+                <ul class="list-group searchLocality" style="position:absolute;z-index:99999;display:none"></ul>
+                 <?php echo lang('users locality text');?>
+                </div>
+                <div class="col-md-4">
+                <input type="text" name="services" class="form-control form-control-lg services" placeholder="Search for a service" required onkeyup="searchService(this.value)" autocomplete="off" />    
+                <ul class="list-group searchService" style="position:absolute;z-index:99999;display:none"></ul>
+                  <?php echo lang('users services text');?>
+                  <input type="hidden" name="serviceId" id="serviceId" /> 
                 </div>
                 <div class="col-md-2">
                   <input type="submit" class="btn btn-danger btn-lg" name="searchBtn" value="Search &raquo;"/>
                 </div>
               </div>
-
-
+             
             <?php echo form_close();?>
          </div>
        </div>
@@ -225,10 +270,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="panel panel-default">
                    <div class="panel-thumbnail">
                      <a href="<?php echo base_url().'welcome/landingPage';?>" title="image <?php echo $i;?>" class="thumb">
-                       <img class="img-fluid mx-auto d-block" src="<?php echo base_url().'assets/img/'.$category['img'];?>" alt="slide <?php echo $i;?>">
+                       <img class="img-fluid mx-auto d-block imgLiquidFill imgLiquid" src="<?php echo base_url().'uploads/admin/'.$category['img'];?>" style="width:280px; height:172px;" alt="slide <?php echo $i;?>">
 
                      </a>
-                       <center><h6><?php echo $category['title'];?><br>Rs 100/-</h6></center>
+                       <center><h6><?php echo $category['title'];?></h6></center>
                    </div>
                  </div>
              </div>
@@ -268,7 +313,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                      <a href="#" title="image <?php echo $j;?>" class="thumb">
                        <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=1" alt="slide <?php echo $j;?>">
                      </a>
-                       <center><h6><?php echo $service['title'];?><br>Rs 100/-</h6></center>
+                       <center><h6><?php echo $service['title'];?>
+                        <?php 
+                           $pricing_detail = json_decode($service['pricing_detail'],true);
+                        ?>
+                        <br>Rs 100/-</h6>
+
+                      </center>
                    </div>
                  </div>
              </div>
@@ -295,16 +346,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    <hr>
   <div class="container">
     <div class="row">
-      <div class="col-md-6"><img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto/v1497606505/appMock.png" width="400"/></div>
+      <div class="col-md-6"><img src="<?php echo base_url();?>assets/img/appMock.webp" width="400"/></div>
       <div class="col-md-6">
            <center style="margin-top:60px">
-           <img src="https://res.cloudinary.com/urbanclap/image/upload/v1488200693/googlePlay.png" />
-           <img src="https://res.cloudinary.com/urbanclap/image/upload/v1488200693/appStore.png" />
+            <img src="<?php echo base_url();?>assets/img/googlePlay.png" />
+           <img src="<?php echo base_url();?>assets/img/appStore.png" />
            </center>
-            <center style="margin-top:30px"><h3>Download Our App</h3></center>
-            <h6 class="nav-link-custom">Choose and book from 100+ services and track them on the go with the UrbanClap App</h6>
+            <center style="margin-top:30px"><h3><?php echo lang('users download app');?></h3></center>
+            <h6 class="nav-link-custom"><?php echo lang('users download text');?> <?php echo $this->settings->site_name; ?> App</h6>
 
-              <h6>Send a link via SMS to install the app</h6>
+              <h6><?php echo lang('users download link');?></h6>
               <input type="text" name="" class="form-control form-control-lg" /><br>
               <center><button class="btn btn-danger">Text App Link</button> </center><br>
 
@@ -315,56 +366,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="container">
 
   </div>
-
+  <hr>
 	<footer class="container py-5">
       <div class="row">
         <div class="col-12 col-md">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+           <?php echo $this->settings->site_name; ?>
           <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
         </div>
         <div class="col-6 col-md">
-          <h5>Network</h5>
+          <h5><?php echo lang('core menu support'); ?></h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Browse Categories</a></li>
-            <li><a class="text-muted" href="#">Browse Jobs</a></li>
-            <li><a class="text-muted" href="#">Browse Job Seeker</a></li>
-            <li><a class="text-muted" href="#">Stuff for developers</a></li>
-            <li><a class="text-muted" href="#">Showcase</a></li>
-            <li><a class="text-muted" href="#">Forum</a></li>
+            <li><a class="text-muted" href="<?php echo base_url('faq'); ?>">
+              <?php echo lang('core menu faq'); ?></a></li>
+            <li><a class="text-muted" href="<?php echo base_url('contact'); ?>">
+            <?php echo lang('core menu feedback'); ?></a></li>
+            <li><a class="text-muted" href="<?php echo base_url('/account/support'); ?>">
+              <?php echo lang('core menu ticket'); ?></a></li>
+            <li><a class="text-muted" href="<?php echo base_url('developers'); ?>">
+              <?php echo lang('core menu api_doc'); ?></a></li>
           </ul>
         </div>
         <div class="col-6 col-md">
-          <h5>About</h5>
+          <h5><?php echo lang('core menu payment'); ?></h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">About us</a></li>
-            <li><a class="text-muted" href="#">How it Works</a></li>
-            <li><a class="text-muted" href="#">Mobile App</a></li>
-            <li><a class="text-muted" href="#">Security</a></li>
-            <li><a class="text-muted" href="#">Fee & Charges</a></li>
-              <li><a class="text-muted" href="#">Investor</a></li>
-                <li><a class="text-muted" href="#">Sitemap</a></li>
+            <li><a class="text-muted" href="<?php echo base_url('/account/money_transfer'); ?>"><?php echo lang('core menu transfer'); ?></a></li>
+            <li><a class="text-muted" href="<?php echo base_url('/account/exchange'); ?>"><?php echo lang('core menu excnage'); ?></a></li>
+            <li><a class="text-muted" href="<?php echo base_url('/account/request'); ?>"><?php echo lang('core menu request'); ?></a></li>
+            <li><a class="text-muted" href="<?php echo base_url('/account/merchants'); ?>"><?php echo lang('core menu acceptance'); ?></a></li>
           </ul>
         </div>
+        
         <div class="col-6 col-md">
-          <h5>Get in touch</h5>
+          <h5><?php echo lang('core menu my_acc'); ?></h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Get support</a></li>
-            <li><a class="text-muted" href="#">Career</a></li>
-            <li><a class="text-muted" href="#">Community</a></li>
-            <li><a class="text-muted" href="#">Affiliate Program</a></li>
-            <li><a class="text-muted" href="#">Merchandise</a></li>
-            <li><a class="text-muted" href="#">Contact Us</a></li>
+            <li><a class="text-muted" href="<?php echo base_url('/account/history'); ?>"><?php echo lang('core menu history'); ?></a></li>
+            <li><a class="text-muted" href="<?php echo base_url('/account/dispute'); ?>"><?php echo lang('core menu resolution'); ?></a></li>
+            <li><a class="text-muted" href="<?php echo base_url('/account/identification'); ?>"><?php echo lang('core menu verifi'); ?></a></li>
+            <li><a class="text-muted" href="<?php echo base_url('/account/user_settings'); ?>"><?php echo lang('core menu settings'); ?></a></li>
           </ul>
-        </div>
-        <div class="col-6 col-md">
-          <h5>Press</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">In the News</a></li>
-            <li><a class="text-muted" href="#">Press Release</a></li>
-            <li><a class="text-muted" href="#">Awards</a></li>
-            <li><a class="text-muted" href="#">Testimonials</a></li>
-          </ul>
-        </div>
+        </div> 
+ 
       </div>
     </footer>
 
@@ -417,10 +458,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+       <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
         <script src="https://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
         <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
         <script>
 
     $('#carouselExample').on('slide.bs.carousel', function (e) {
@@ -462,8 +506,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
            content.html($(this).html());
            $(".modal-profile").modal({show:true});
        });
-
+          
      });
         </script>
+         <script>
+                function countryChange(x){
+                  var data = {
+                        'countryId' : $('#countryId').val(),
+                      };
+                     $.ajax({
+                      type:'POST',
+                      url:'<?php echo base_url();?>user/getAllCitiesFromCountryId', 
+                      data:data,
+                      success:function(html){
+                        $('#cityId').html(html).show();
+                        //console.log(html);
+                      }
+                    });
+                  }
+                 
+                  function searchService(x){
+                       var data = {
+                                    'service_name':x
+                                  };
+                     $.ajax({
+                      type:'POST',
+                      url:'<?php echo base_url();?>user/getServices', 
+                      data:data,
+                      success:function(html){
+                        $('.searchService').html(html).show();
+                           console.log(html);
+                      }
+                    });  
+                  }
+                  function selectservices2(x){
+                     var servicename = $('.selectservices2'+x).data('servicename'+x);
+                     var serviceid   = $('.selectservices2'+x).data('serviceid'+x); 
+                     $('.services').val(servicename);
+                     $('#serviceId').val(serviceid);
+                     $('.searchService').hide();  
+                  }
+              </script>
   </body>
 </html>

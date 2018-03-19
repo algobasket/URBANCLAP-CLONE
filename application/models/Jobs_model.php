@@ -7,7 +7,7 @@ class Jobs_model extends CI_Model {
       parent::__construct();
   }
 
-  function projectsCreatedByUser($uid){
+  function projectsCreatedByUser($uid){ 
     $query = $this->db->select('jobs.*,categories.title as categoryName,jobs.assigned_user_id as assignedUser,services.title as serviceName,status.name as statusName,CONCAT(users.first_name," ",users.last_name) as fullName')
                       ->from('jobs')
                       ->join('users','users.id = jobs.user_id','left')
@@ -19,7 +19,7 @@ class Jobs_model extends CI_Model {
     return $query->result_array();
   }
 
-  function assignedProjects($uid){
+  function assignedProjects($uid){ 
        $query = $this->db->select('jobs.*,categories.title as categoryName,jobs.assigned_user_id as assignedUser,services.title as serviceName,status.name as statusName,CONCAT(users.first_name," ",users.last_name) as fullName')
                          ->from('jobs')
                          ->join('users','users.id = jobs.user_id','left')
@@ -42,6 +42,13 @@ class Jobs_model extends CI_Model {
                       ->get();
     return $query->result_array();
   }
+
+  function postCustomJob($array){
+     $this->db->insert('jobs',$array);
+     //echo $this->db->last_query();
+     return true;
+  }
+
 
 
 }

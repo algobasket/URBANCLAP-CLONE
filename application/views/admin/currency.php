@@ -1,7 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <?php echo form_open(site_url("admin/currency/update"), array("" => "")) ?>
-
 <div class="row">
   <div class="col-md-12">
     <div class="card sameheight-item items" data-exclude="xs,sm,lg">
@@ -146,10 +145,112 @@
             <label>Rate Extra 4 currency</label>
           <span class="required">*</span>
             <input type="text" class="form-control underlined" id="extra5_rate" name="extra5_rate" placeholder="50.00" value="<?php echo $this->currencys->display->extra5_rate ?>"> 
-        </div>
-        
+        </div>  
     </div>
+
+       <div class="row">
+        <div class="form-group col-sm-1">
+            <label>Activate</label>
+            </br>
+            <input type="checkbox" class="js-switch primary" name="extra6_check" 
+            value="1" <?php if($this->currencys->display->extra6_check) echo "checked" ?>/>
+        </div>
+        <div class="form-group col-sm-5">
+            <label>Name Extra 6 currency</label>
+            <span class="required">*</span>
+            <input type="text" class="form-control underlined" id="extra6_name" 
+            name="extra6_name" placeholder="USD Wallet" value="<?php echo $this->currencys->display->extra6_name ?>"> 
+        </div>
+        <div class="form-group col-sm-3">
+            <label>Code Extra 6 currency</label>
+          <span class="required">*</span>
+            <input type="text" class="form-control underlined" id="extra6_code" 
+            name="extra6_code" placeholder="USD" value="<?php echo $this->currencys->display->extra6_code ?>"> 
+        </div>
+         <div class="form-group col-sm-3">
+            <label>Rate Extra 6 currency</label>
+          <span class="required">*</span>
+            <input type="text" class="form-control underlined" id="extra6_rate" name="extra6_rate" placeholder="50.00" value="<?php echo $this->currencys->display->extra6_rate ?>"> 
+        </div>  
+       </div>
+
+
+        <div class="row">
+        <div class="form-group col-sm-1">
+            <label>Activate</label>
+            </br>
+            <input type="checkbox" class="js-switch primary" name="extra7_check" 
+            value="1" <?php if($this->currencys->display->extra7_check) echo "checked" ?>/>
+        </div>
+        <div class="form-group col-sm-5">
+            <label>Name Extra 7 currency</label>
+            <span class="required">*</span>
+            <input type="text" class="form-control underlined" id="extra7_name" 
+            name="extra7_name" placeholder="USD Wallet" value="<?php echo $this->currencys->display->extra7_name ?>"> 
+        </div>
+        <div class="form-group col-sm-3">
+            <label>Code Extra 7 currency</label>
+          <span class="required">*</span>
+            <input type="text" class="form-control underlined" id="extra7_code" 
+            name="extra7_code" placeholder="USD" value="<?php echo $this->currencys->display->extra7_code ?>"> 
+        </div>
+         <div class="form-group col-sm-3">
+            <label>Rate Extra 7 currency</label>
+          <span class="required">*</span>
+            <input type="text" class="form-control underlined" id="extra7_rate" name="extra7_rate" placeholder="50.00" value="<?php echo $this->currencys->display->extra7_rate ?>"> 
+        </div>  
+       </div>
+
+
+
+       <div class="row">
+        <div class="form-group col-sm-1">
+            <label>Activate</label>
+            </br>
+            <input type="checkbox" class="js-switch primary" name="extra8_check" 
+            value="1" <?php if($this->currencys->display->extra8_check) echo "checked" ?>/>
+        </div>
+        <div class="form-group col-sm-5">
+            <label>Name Extra 8 currency</label>
+            <span class="required">*</span>
+            <input type="text" class="form-control underlined" id="extra8_name" 
+            name="extra8_name" placeholder="USD Wallet" value="<?php echo $this->currencys->display->extra8_name ?>"> 
+        </div>
+        <div class="form-group col-sm-3">
+            <label>Code Extra 8 currency</label>
+          <span class="required">*</span>
+            <input type="text" class="form-control underlined" id="extra7_code" 
+            name="extra8_code" placeholder="USD" value="<?php echo $this->currencys->display->extra8_code ?>"> 
+        </div>
+         <div class="form-group col-sm-3">
+            <label>Rate Extra 8 currency</label>
+          <span class="required">*</span>
+            <input type="text" class="form-control underlined" id="extra8_rate" name="extra8_rate" placeholder="50.00" value="<?php echo $this->currencys->display->extra8_rate ?>"> 
+        </div>  
+       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      </div>
+
+
+
 <div class="card-footer" style="text-align:right"> 
                                              <a class="btn btn-secondary btn-sm" href="<?php echo $cancel_url; ?>"><?php echo lang('core button cancel'); ?></a>
                                                     <button type="submit"  class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-save"></span> <?php echo lang('core button save'); ?></button>

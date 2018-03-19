@@ -1,7 +1,7 @@
 <div class="row">
 <?php echo anchor('admin/categories','All Category','class="btn btn-primary"');?>
 <?php echo $this->session->flashdata('alert');?>
-<?php echo form_open('admin/categories/create');?>
+<?php echo form_open_multipart('admin/categories/create');?>
 <table class="table">
   <tr>
   <td>Parent</td>
@@ -21,6 +21,10 @@
   <tr>
   <td>Name</td>
   <td><?php echo form_input('name','','placeholder="Name" class="form-control" required');?></td>
+  </tr>
+  <tr>
+  <td>Image</td>
+  <td><?php echo form_upload('file','');?></td>
   </tr>
   <tr>
   <td></td>

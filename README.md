@@ -1,4 +1,4 @@
-# UrbanClap Clone - README [![AlgoBasket](https://image.ibb.co/huhL9c/buynow_green.png)](http://urbanclap.algobasket.com/buy)
+# UrbanClap Clone - README [![AlgoBasket](https://image.ibb.co/huhL9c/buynow_green.png)](https://www.paypal.me/algobasket)
 
 > APPLICATION FOR JOB & SERVICES
 

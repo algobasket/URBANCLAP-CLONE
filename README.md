@@ -15,7 +15,7 @@ This project is similar to URBANCLAP for searching job and services online
 
 > ### CREDENTIALS 
  - user/12345  (User)
- - admin/12345 (Administrator)
+ - admin/12345 (Administrator) 
  
  > ### Developed By AlgoBasket
  
